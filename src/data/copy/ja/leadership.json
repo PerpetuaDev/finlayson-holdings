@@ -6,16 +6,28 @@
   },
   "profile": {
     "label": "経歴",
-    "portraitPlaceholder": "portrait — shoot pending",
     "paragraphs": [
       "2016年、ニュージーランドにて当グループを創業。以来10年にわたり、MDMCおよびPerpetua Softwareを経営してきました。",
       "2026年、横浜市の外国人起業家支援制度のもと横浜に拠点を移し、グループの日本展開を指揮。Finlayson Holdings Japan株式会社の代表取締役を務めます。日英バイリンガルで、ニュージーランドと日本の両拠点を運営しています。"
     ],
     "facts": [
-      { "term": "拠点", "value": "神奈川県横浜市" },
-      { "term": "役職", "value": "Finlayson Holdings Japan株式会社 代表取締役" },
-      { "term": "創業", "value": "2016年" },
-      { "term": "言語", "value": "英語・日本語" }
-    ]
+      {
+        "term": "拠点",
+        "value": "神奈川県横浜市"
+      },
+      {
+        "term": "役職",
+        "value": "Finlayson Holdings Japan株式会社 代表取締役"
+      },
+      {
+        "term": "創業",
+        "value": "2016年"
+      },
+      {
+        "term": "言語",
+        "value": "英語・日本語"
+      }
+    ],
+    "portraitAlt": "創業者・代表取締役 リアム・フィンレイソン"
   }
 }

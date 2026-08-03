@@ -6,16 +6,28 @@
   },
   "profile": {
     "label": "PROFILE",
-    "portraitPlaceholder": "portrait — shoot pending",
     "paragraphs": [
       "Liam Finlayson founded the group in New Zealand in 2016 and has operated MDMC and Perpetua Software for a decade since.",
       "In 2026 he relocated to Yokohama to lead the group's Japan expansion under the city's entrepreneur program, and serves as Representative Director of Finlayson Holdings Japan KK. He works bilingually across the group's New Zealand and Japanese operations."
     ],
     "facts": [
-      { "term": "Based", "value": "Yokohama, Japan" },
-      { "term": "Role", "value": "Representative Director, Finlayson Holdings Japan KK" },
-      { "term": "Group since", "value": "2016" },
-      { "term": "Languages", "value": "English · Japanese" }
-    ]
+      {
+        "term": "Based",
+        "value": "Yokohama, Japan"
+      },
+      {
+        "term": "Role",
+        "value": "Representative Director, Finlayson Holdings Japan KK"
+      },
+      {
+        "term": "Group since",
+        "value": "2016"
+      },
+      {
+        "term": "Languages",
+        "value": "English · Japanese"
+      }
+    ],
+    "portraitAlt": "Liam Finlayson, Founder & Representative Director"
   }
 }

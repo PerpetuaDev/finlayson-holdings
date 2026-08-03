@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import copyEn from '../../data/copy/en/leadership.json';
 import copyJa from '../../data/copy/ja/leadership.json';
+import { withBase } from '../../lib/paths';
 
 interface Props {
   locale: 'en' | 'ja';
@@ -23,9 +24,13 @@ const title =
   <section class="band">
     <div class="band__rail"><span class="band__label">{t.profile.label}</span></div>
     <div class="profile">
-      <div class="portrait">
-        <span class="portrait__caption">{t.profile.portraitPlaceholder}</span>
-      </div>
+      <img
+        class="portrait"
+        src={withBase('/assets/liam-finlayson.webp')}
+        alt={t.profile.portraitAlt}
+        width="300"
+        height="380"
+      />
       <div class="bio">
         {t.profile.paragraphs.map((p) => <p class="para">{p}</p>)}
         <dl class="facts">
@@ -59,22 +64,11 @@ const title =
     align-items: start;
   }
 
-  /* Placeholder until the real shoot — same 300×380 slot (README: Fidelity) */
   .portrait {
     width: 300px;
     height: 380px;
-    background: repeating-linear-gradient(45deg, #f1efea 0 12px, #ebe8e2 12px 24px);
+    object-fit: cover;
     border: 1px solid rgba(35, 31, 32, 0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .portrait__caption {
-    font-family: ui-monospace, Menlo, monospace;
-    font-size: 11px;
-    color: var(--ink-50);
-    letter-spacing: 0.06em;
   }
 
   .bio {

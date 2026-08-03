@@ -17,7 +17,7 @@ const title =
 <Base locale={locale} slug="succession" title={title} description={t.masthead.lede}>
   <section class="masthead">
     <p class="masthead__label">{t.masthead.label}</p>
-    <h1 class="serif">{t.masthead.h1}</h1>
+    <h1>{t.masthead.h1}</h1>
     <p class="masthead__lede">{t.masthead.lede}</p>
   </section>
 
@@ -41,20 +41,6 @@ const title =
 </Base>
 
 <style>
-  .serif {
-    font-family: var(--font-editorial);
-    font-size: 54px;
-    line-height: 1.2;
-    letter-spacing: -0.005em;
-    max-width: 860px;
-  }
-
-  .serif:lang(ja) {
-    font-size: 42px;
-    line-height: 1.6;
-    letter-spacing: 0.04em;
-  }
-
   .program {
     display: grid;
     grid-template-columns: 200px 1fr auto;
@@ -123,14 +109,6 @@ const title =
   }
 
   @media (max-width: 900px) {
-    .serif {
-      font-size: 36px;
-    }
-
-    .serif:lang(ja) {
-      font-size: 28px;
-    }
-
     .program {
       grid-template-columns: 1fr;
       gap: 16px;

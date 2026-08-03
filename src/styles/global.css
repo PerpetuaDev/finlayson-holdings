@@ -42,18 +42,16 @@
   --paper-40: rgba(251, 250, 248, 0.4);
   --paper-30: rgba(251, 250, 248, 0.3);
 
-  /* Type */
+  /* Type — single grotesque register site-wide (serif retired 8/03) */
   --font-latin: 'Hanken Grotesk', 'Zen Kaku Gothic New', sans-serif;
-  --font-latin-serif: 'Source Serif 4', 'Shippori Mincho', serif;
   --font-jp: 'Zen Kaku Gothic New', 'Hanken Grotesk', sans-serif;
-  --font-jp-serif: 'Shippori Mincho', 'Source Serif 4', serif;
 
   /* Spacing */
   --side: 56px;
 
   /* Locale-dependent (overridden under :lang(ja)) */
   --font-body: var(--font-latin);
-  --font-editorial: var(--font-latin-serif);
+  --font-editorial: var(--font-latin);
   --label-ls: 0.18em;
   --masthead-label-ls: 0.22em;
 
@@ -62,7 +60,7 @@
 
 :lang(ja) {
   --font-body: var(--font-jp);
-  --font-editorial: var(--font-jp-serif);
+  --font-editorial: var(--font-jp);
   --label-ls: 0.24em;
   --masthead-label-ls: 0.24em;
 }
