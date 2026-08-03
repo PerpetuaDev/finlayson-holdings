@@ -67,7 +67,7 @@
       {
         "term": "Ahead",
         "tone": "muted",
-        "body": "Security services. Succession acquisitions. Further markets, in time."
+        "body": "Cybersecurity services. Succession acquisitions. Further markets, in time."
       }
     ]
   },
@@ -97,7 +97,7 @@
         "sub": "2026",
         "children": [
           {
-            "name": "Security",
+            "name": "Cybersecurity",
             "sub": "LAUNCHING",
             "style": "dashed",
             "gatedBySecurityFlag": true
