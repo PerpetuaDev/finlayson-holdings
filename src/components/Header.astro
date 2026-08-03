@@ -55,7 +55,7 @@ const pathFor = (l: string) => localePath(l, slug ? `/${slug}` : '');
   }
 
   .wordmark img {
-    height: 15px;
+    height: 17.25px;
     width: auto;
   }
 
@@ -118,9 +118,11 @@ const pathFor = (l: string) => localePath(l, slug ? `/${slug}` : '');
   }
 
   .burger {
+    /* gap + bar height must sum to a whole pixel so both 1.5px bars share
+       the same subpixel phase and rasterize identically */
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 5.5px;
     padding: 8px 0 8px 6px;
   }
 

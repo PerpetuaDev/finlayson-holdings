@@ -11,6 +11,9 @@ export const site = {
     mdmc: 'https://mdmc.co',
     perpetua: 'https://perpetua.studio',
   },
+  // DO Function relay (relay/ in this repo) → Mailgun → contact@finlaysonholdings.com
+  contactEndpoint:
+    'https://faas-sgp1-18bc02ac.doserverless.co/api/v1/web/fn-e1f1c95d-6eee-4feb-a650-53f4c9448f2c/finlayson/contact',
 } as const;
 
 export type Locale = 'en' | 'ja';

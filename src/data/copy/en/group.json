@@ -27,17 +27,42 @@
       {
         "term": "2016",
         "tone": "default",
-        "body": "MDMC founded. Finlayson Holdings established in Auckland, New Zealand — August 2016."
+        "body": "MDMC founded and Finlayson Holdings established in Christchurch, New Zealand — August 2016. Work begins with our first client, a relationship that continues today."
       },
       {
-        "term": "2016 – 2026",
+        "term": "2017",
         "tone": "default",
-        "body": "Perpetua Software established as the group's engineering arm. A decade of continuous operation; our anchor client relationship passes ten years."
+        "body": "The company that would become Perpetua Software is established — the group's future engineering arm."
+      },
+      {
+        "term": "2019",
+        "tone": "default",
+        "body": "First employees join, and a permanent Christchurch office. An industry-first online booking platform ships for our anchor client."
+      },
+      {
+        "term": "2022",
+        "tone": "default",
+        "body": "Work extends internationally — a project delivered in the United States, and another as far as the Philippines."
+      },
+      {
+        "term": "2023",
+        "tone": "default",
+        "body": "A real-time customer reporting platform launches for the anchor client, serving New Zealand and Australia."
+      },
+      {
+        "term": "2024",
+        "tone": "default",
+        "body": "The group's teams grow across New Zealand and Australia, including Perpetua Software's first Australian hire."
+      },
+      {
+        "term": "2025",
+        "tone": "default",
+        "body": "A second full rebrand ships for the anchor client. Approval is granted to establish in Yokohama."
       },
       {
         "term": "2026",
         "tone": "accent",
-        "body": "Finlayson Holdings Japan KK incorporated in Yokohama — July 2026. The group's second market."
+        "body": "Finlayson Holdings Japan KK incorporated in Yokohama — July 2026. A first Japanese office opens at KITANAKA BRICK & WHITE, and the first domestic project ships: a bilingual website and booking system for the inbound tourism sector. The anchor client relationship passes ten years."
       },
       {
         "term": "Ahead",
@@ -48,13 +73,43 @@
   },
   "structure": {
     "label": "STRUCTURE",
-    "parent": { "name": "Finlayson Holdings Ltd", "sub": "NEW ZEALAND — EST. 2016" },
-    "japanEntity": { "name": "Finlayson Holdings Japan KK", "sub": "JAPAN — 2026" },
-    "children": [
-      { "name": "MDMC", "sub": "BRAND & DESIGN", "style": "solid", "gatedBySecurityFlag": false },
-      { "name": "Perpetua Software", "sub": "ENGINEERING", "style": "solid", "gatedBySecurityFlag": false },
-      { "name": "Security", "sub": "LAUNCHING", "style": "dashed", "gatedBySecurityFlag": true },
-      { "name": "Acquired companies", "sub": "THROUGH SUCCESSION", "style": "dashed", "gatedBySecurityFlag": false }
+    "entities": [
+      {
+        "name": "Finlayson Holdings New Zealand",
+        "sub": "2016",
+        "children": [
+          {
+            "name": "MDMC",
+            "sub": "BRAND & DESIGN",
+            "style": "solid",
+            "gatedBySecurityFlag": false
+          },
+          {
+            "name": "Perpetua Software",
+            "sub": "ENGINEERING",
+            "style": "solid",
+            "gatedBySecurityFlag": false
+          }
+        ]
+      },
+      {
+        "name": "Finlayson Holdings Japan",
+        "sub": "2026",
+        "children": [
+          {
+            "name": "Security",
+            "sub": "LAUNCHING",
+            "style": "dashed",
+            "gatedBySecurityFlag": true
+          },
+          {
+            "name": "Acquired companies",
+            "sub": "THROUGH SUCCESSION",
+            "style": "dashed",
+            "gatedBySecurityFlag": false
+          }
+        ]
+      }
     ]
   }
 }

@@ -13,7 +13,11 @@ const { locale } = Astro.props;
 const t = { en: copyEn, ja: copyJa }[locale];
 const title =
   locale === 'ja' ? 'グループについて — Finlayson Holdings' : 'The Group — Finlayson Holdings';
-const children = t.structure.children.filter((c) => !c.gatedBySecurityFlag || site.showSecurity);
+// Two sibling entities, no ultimate holdco; each shows its own children.
+const entities = t.structure.entities.map((e) => ({
+  ...e,
+  children: e.children.filter((c) => !c.gatedBySecurityFlag || site.showSecurity),
+}));
 ---
 
 <Base locale={locale} slug="group" title={title} description={t.masthead.lede}>
@@ -50,30 +54,27 @@ const children = t.structure.children.filter((c) => !c.gatedBySecurityFlag || si
   <Band label={t.structure.label} padded={false}>
     <div class="structure">
       <div class="diagram">
-        <div class="entity">
-          <div class="entity__name">{t.structure.parent.name}</div>
-          <div class="entity__sub">{t.structure.parent.sub}</div>
-        </div>
-        <div class="connector"></div>
-        <div class="entity">
-          <div class="entity__name">{t.structure.japanEntity.name}</div>
-          <div class="entity__sub">{t.structure.japanEntity.sub}</div>
-        </div>
-        <div class="connector"></div>
-        <div class="hrule"></div>
-        <div class="children">
-          {
-            children.map((c) => (
-              <div class="child">
-                <div class="tick"></div>
-                <div class="child__box" class:list={[`child__box--${c.style}`]}>
-                  <div class="child__name">{c.name}</div>
-                  <div class="child__sub">{c.sub}</div>
-                </div>
+        {
+          entities.map((e) => (
+            <div class="org">
+              <div class="entity">
+                <div class="entity__name">{e.name}</div>
+                <div class="entity__sub">{e.sub}</div>
               </div>
-            ))
-          }
-        </div>
+              <div class="connector" />
+              <div class="children">
+                {e.children.map((c) => (
+                  <div class="child">
+                    <div class="child__box" class:list={[`child__box--${c.style}`]}>
+                      <div class="child__name">{c.name}</div>
+                      <div class="child__sub">{c.sub}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
+        }
       </div>
     </div>
   </Band>
@@ -100,10 +101,17 @@ const children = t.structure.children.filter((c) => !c.gatedBySecurityFlag || si
   }
 
   .diagram {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+    max-width: 860px;
+  }
+
+  .org {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 860px;
   }
 
   .entity {
@@ -135,31 +143,47 @@ const children = t.structure.children.filter((c) => !c.gatedBySecurityFlag || si
     background: var(--ink-35);
   }
 
-  .hrule {
-    width: 72%;
+  .children {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Connector lines drawn per child: the horizontal segment spans exactly
+     from the first tick to the last tick, meeting each in a right angle. */
+  .child {
+    flex: 1;
+    max-width: 224px;
+    position: relative;
+    padding: 24px 12px 0;
+  }
+
+  .child::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 24px;
+    background: var(--ink-35);
+  }
+
+  .child::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 1px;
     background: var(--ink-35);
   }
 
-  .children {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    width: 100%;
+  .child:first-child::after {
+    left: 50%;
   }
 
-  .child {
-    flex: 1;
-    max-width: 200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .tick {
-    width: 1px;
-    height: 24px;
-    background: var(--ink-35);
+  .child:last-child::after {
+    right: 50%;
   }
 
   .child__box {
@@ -198,15 +222,24 @@ const children = t.structure.children.filter((c) => !c.gatedBySecurityFlag || si
       padding: 48px var(--side) 56px;
     }
 
+    .diagram {
+      grid-template-columns: 1fr;
+      gap: 56px;
+    }
+
     .children {
       flex-direction: column;
       align-items: center;
-      gap: 0;
     }
 
     .child {
       max-width: 240px;
       width: 100%;
+    }
+
+    /* stacked: vertical ticks only, no horizontal segments */
+    .child::after {
+      display: none;
     }
   }
 </style>

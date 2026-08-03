@@ -18,9 +18,6 @@ const title = 'Finlayson Holdings';
     <h1>{t.masthead.h1}</h1>
     <div class="lede-row">
       <p class="lede">{t.masthead.lede}</p>
-      <p class="meta">
-        {t.masthead.meta.map((line) => <span>{line}</span>)}
-      </p>
     </div>
   </section>
 
@@ -32,7 +29,6 @@ const title = 'Finlayson Holdings';
           <div class="operate__col">
             <div class="name-row">
               <h2>{c.name}</h2>
-              <span class="tag">{c.tag}</span>
             </div>
             <p class="desc">{c.description}</p>
             <ul class="services">
@@ -125,21 +121,6 @@ const title = 'Finlayson Holdings';
     max-width: 520px;
   }
 
-  .meta {
-    font-size: 12.5px;
-    letter-spacing: 0.16em;
-    color: var(--ink-50);
-    text-align: right;
-    line-height: 2;
-    display: grid;
-  }
-
-  .meta:lang(ja) {
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    line-height: 2.1;
-  }
-
   /* What we operate */
   .operate {
     display: grid;
@@ -168,16 +149,6 @@ const title = 'Finlayson Holdings';
     font-size: 24px;
     letter-spacing: -0.01em;
     font-family: var(--font-latin);
-  }
-
-  .tag {
-    font-size: 12px;
-    color: var(--ink-45);
-    letter-spacing: 0.1em;
-  }
-
-  .tag:lang(ja) {
-    letter-spacing: 0;
   }
 
   .desc {

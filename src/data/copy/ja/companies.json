@@ -8,40 +8,80 @@
     {
       "railLabel": "01",
       "name": "MDMC",
-      "tag": "ブランド・デザイン — 2016年〜",
       "description": "ブランド、デジタル戦略、デザイン。国内外のクライアントワークに加え、横浜拠点による日英バイリンガル体制で、日本市場での事業を広げています。",
       "services": [
-        { "label": "ブランディング・アイデンティティ", "muted": false },
-        { "label": "ウェブ・プラットフォームデザイン", "muted": false },
-        { "label": "デジタルプロダクトデザイン", "muted": false },
-        { "label": "体験デザイン", "muted": false },
-        { "label": "印刷物・コラテラル", "muted": false },
-        { "label": "日英バイリンガル対応", "muted": true }
+        {
+          "label": "ブランディング・アイデンティティ",
+          "muted": false
+        },
+        {
+          "label": "ウェブ・プラットフォームデザイン",
+          "muted": false
+        },
+        {
+          "label": "デジタルプロダクトデザイン",
+          "muted": false
+        },
+        {
+          "label": "体験デザイン",
+          "muted": false
+        },
+        {
+          "label": "印刷物・コラテラル",
+          "muted": false
+        },
+        {
+          "label": "日英バイリンガル対応",
+          "muted": true
+        }
       ],
       "proof": {
         "label": "実績",
         "text": "インバウンド観光分野をはじめ、日本市場での実績が広がっています。"
       },
-      "cta": { "label": "mdmc.co を見る ↗", "url": "https://mdmc.co" }
+      "cta": {
+        "label": "mdmc.co を見る ↗",
+        "url": "https://mdmc.co"
+      }
     },
     {
       "railLabel": "02",
       "name": "Perpetua Software",
-      "tag": "ソフトウェアエンジニアリング",
       "description": "システムに事業を支えられる組織のための、ソフトウェア開発とエンジニアリング。丁寧につくり、長期にわたって運用します。",
       "services": [
-        { "label": "カスタム開発・システム連携", "muted": false },
-        { "label": "ウェブ・モバイルアプリケーション", "muted": false },
-        { "label": "セキュリティ・コンプライアンス", "muted": false },
-        { "label": "データ・アナリティクス", "muted": false },
-        { "label": "AI・自動化", "muted": false },
-        { "label": "クラウド・マネージドインフラ", "muted": false }
+        {
+          "label": "カスタム開発・システム連携",
+          "muted": false
+        },
+        {
+          "label": "ウェブ・モバイルアプリケーション",
+          "muted": false
+        },
+        {
+          "label": "セキュリティ・コンプライアンス",
+          "muted": false
+        },
+        {
+          "label": "データ・アナリティクス",
+          "muted": false
+        },
+        {
+          "label": "AI・自動化",
+          "muted": false
+        },
+        {
+          "label": "クラウド・マネージドインフラ",
+          "muted": false
+        }
       ],
       "proof": {
         "label": "実績",
         "text": "10年を超える大手クライアントとの継続的なお取引。予約プラットフォームや社内ポータル等の基幹システムを開発・運用。"
       },
-      "cta": { "label": "perpetua.studio を見る ↗", "url": "https://perpetua.studio" }
+      "cta": {
+        "label": "perpetua.studio を見る ↗",
+        "url": "https://perpetua.studio"
+      }
     }
   ],
   "security": {

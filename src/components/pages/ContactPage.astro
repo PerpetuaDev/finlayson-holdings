@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import copyEn from '../../data/copy/en/contact.json';
 import copyJa from '../../data/copy/ja/contact.json';
+import { site } from '../../data/site';
 
 interface Props {
   locale: 'en' | 'ja';
@@ -9,6 +10,7 @@ interface Props {
 
 const { locale } = Astro.props;
 const t = { en: copyEn, ja: copyJa }[locale];
+const states = t.form.states;
 const title =
   locale === 'ja' ? 'お問い合わせ — Finlayson Holdings' : 'Contact — Finlayson Holdings';
 ---
@@ -33,8 +35,7 @@ const title =
   <section class="band">
     <div class="band__rail"><span class="band__label">{t.form.label}</span></div>
     <div class="inquiry">
-      {/* Visual per prototype — wire to a real backend with the same fields (README: Fidelity) */}
-      <form class="form" method="post">
+      <form class="form" id="inquiry-form">
         <div class="field">
           <label for="inquiry-type">{t.form.type.label}</label>
           <select id="inquiry-type" name="type">
@@ -81,11 +82,18 @@ const title =
             placeholder={t.form.message.placeholder}
             required></textarea>
         </div>
+        {/* honeypot — bots fill it, people never see it */}
+        <div class="hp" aria-hidden="true">
+          <label for="inquiry-website">Website</label>
+          <input id="inquiry-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+        </div>
         <div>
           <button class="btn-ink btn-ink--submit" type="submit">{t.form.submit}</button>
           {t.form.privacyNote && <p class="privacy">{t.form.privacyNote}</p>}
+          <p class="form-error" id="inquiry-error" hidden>{states.error}</p>
         </div>
       </form>
+      <p class="form-success" id="inquiry-success" hidden>{states.success}</p>
       <div class="address">
         <p class="address__heading">{t.address.heading}</p>
         {t.address.lines.map((line) => <p>{line}</p>)}
@@ -96,6 +104,51 @@ const title =
     </div>
   </section>
 </Base>
+
+<script
+  is:inline
+  define:vars={{ endpoint: site.contactEndpoint, sendingLabel: states.sending, locale }}
+>
+  (function () {
+    var form = document.getElementById('inquiry-form');
+    if (!form) return;
+    var button = form.querySelector('button[type="submit"]');
+    var idleLabel = button.textContent;
+    var errorEl = document.getElementById('inquiry-error');
+    var successEl = document.getElementById('inquiry-success');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      errorEl.hidden = true;
+      button.disabled = true;
+      button.textContent = sendingLabel;
+      try {
+        var data = new FormData(form);
+        var res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            type: data.get('type'),
+            name: data.get('name'),
+            company: data.get('company'),
+            email: data.get('email'),
+            message: data.get('message'),
+            website: data.get('website'),
+            lang: locale,
+          }),
+        });
+        var out = await res.json();
+        if (!res.ok || !out.ok) throw new Error('send failed');
+        form.hidden = true;
+        successEl.hidden = false;
+      } catch (err) {
+        errorEl.hidden = false;
+        button.disabled = false;
+        button.textContent = idleLabel;
+      }
+    });
+  })();
+</script>
 
 <style>
   .note {
@@ -164,6 +217,40 @@ const title =
 
   .btn-ink--submit {
     padding: 13px 26px;
+  }
+
+  .btn-ink--submit:disabled {
+    background: var(--ink-55);
+    cursor: default;
+  }
+
+  .hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .form-error {
+    margin-top: 14px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--vermilion);
+    max-width: 420px;
+  }
+
+  .form-success {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--ink-75);
+    max-width: 480px;
+    border-top: 2px solid var(--vermilion);
+    padding-top: 22px;
+  }
+
+  .form-success:lang(ja) {
+    line-height: 2.1;
   }
 
   .privacy {

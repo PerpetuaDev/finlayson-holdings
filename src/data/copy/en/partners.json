@@ -13,7 +13,7 @@
       },
       {
         "term": "The structure",
-        "body": "A New Zealand parent established in 2016; a Japanese subsidiary incorporated in Yokohama in 2026. Two clear jurisdictions, clean consolidation, operating brands beneath."
+        "body": "A New Zealand company established in 2016, and a Japanese company incorporated in Yokohama in 2026 — separate entities under common leadership, each clear in its own jurisdiction, operating brands beneath."
       },
       {
         "term": "The history",
@@ -24,6 +24,9 @@
   "note": {
     "label": "A NOTE",
     "body": "We are not raising capital. We welcome conversations with financial institutions and aligned long-term partners — as introductions, not as pitches.",
-    "cta": { "label": "Introduce yourself →", "path": "/contact" }
+    "cta": {
+      "label": "Introduce yourself →",
+      "path": "/contact"
+    }
   }
 }

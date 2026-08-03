@@ -1,0 +1,12 @@
+packages:
+  - name: finlayson
+    functions:
+      - name: contact
+        runtime: nodejs:18
+        web: true
+        environment:
+          MAILGUN_API_KEY: ${MAILGUN_API_KEY}
+          MAILGUN_DOMAIN: ${MAILGUN_DOMAIN}
+          MAILGUN_REGION: ${MAILGUN_REGION}
+          NOTIFY_TO: ${NOTIFY_TO}
+          REPLY_TO: ${REPLY_TO}

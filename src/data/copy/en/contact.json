@@ -7,9 +7,15 @@
   "note": {
     "label": "A NOTE FIRST",
     "before": "For client and project work, please contact the companies directly — ",
-    "mdmcLink": { "label": "MDMC ↗", "url": "https://mdmc.co" },
+    "mdmcLink": {
+      "label": "MDMC ↗",
+      "url": "https://mdmc.co"
+    },
     "between": " for brand and design, ",
-    "perpetuaLink": { "label": "Perpetua Software ↗", "url": "https://perpetua.studio" },
+    "perpetuaLink": {
+      "label": "Perpetua Software ↗",
+      "url": "https://perpetua.studio"
+    },
     "after": " for engineering."
   },
   "form": {
@@ -23,12 +29,29 @@
         "Other"
       ]
     },
-    "name": { "label": "NAME", "placeholder": "Your name" },
-    "company": { "label": "COMPANY", "placeholder": "Company name" },
-    "email": { "label": "EMAIL", "placeholder": "name@company.com" },
-    "message": { "label": "MESSAGE", "placeholder": "How can we help?" },
+    "name": {
+      "label": "NAME",
+      "placeholder": "Your name"
+    },
+    "company": {
+      "label": "COMPANY",
+      "placeholder": "Company name"
+    },
+    "email": {
+      "label": "EMAIL",
+      "placeholder": "name@company.com"
+    },
+    "message": {
+      "label": "MESSAGE",
+      "placeholder": "How can we help?"
+    },
     "submit": "Send inquiry",
-    "privacyNote": null
+    "privacyNote": null,
+    "states": {
+      "sending": "Sending…",
+      "success": "Thank you — your inquiry has been received. We will reply within three business days.",
+      "error": "Your message could not be sent. Please try again in a moment, or write to contact@finlaysonholdings.com."
+    }
   },
   "address": {
     "heading": "Registered office",

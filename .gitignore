@@ -6,3 +6,4 @@ dist/
 
 # Internal design handoff — local reference only, not for the public repo
 design_handoff_finlayson_holdings_site/
+relay/.deployed/

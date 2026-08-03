@@ -1,18 +1,13 @@
 {
   "masthead": {
     "h1": "We build and keep\ngood businesses.",
-    "lede": "A permanent holding company for design, software, and the businesses that deserve to continue.",
-    "meta": [
-      "FOUNDED IN NEW ZEALAND, 2016",
-      "OPERATING IN JAPAN SINCE 2026"
-    ]
+    "lede": "A permanent holding company for design, software, and the businesses that deserve to continue."
   },
   "operate": {
     "label": "WHAT WE\nOPERATE",
     "companies": [
       {
         "name": "MDMC",
-        "tag": "SINCE 2016",
         "description": "Brand, digital strategy, and design for clients internationally.",
         "services": [
           "Branding & identity",
@@ -25,7 +20,6 @@
       },
       {
         "name": "Perpetua Software",
-        "tag": "ENGINEERING",
         "description": "Software development and engineering, from custom systems to managed infrastructure.",
         "services": [
           "Custom software & integrations",
@@ -63,6 +57,9 @@
     "heading": "Continuing what you built.",
     "body": "When an owner is ready to step back, we provide a permanent home for the business — the name, the people, and the relationships stay.",
     "note": "Conversations are confidential and without obligation. We work alongside your existing advisors.",
-    "cta": { "label": "About succession →", "path": "/succession" }
+    "cta": {
+      "label": "About succession →",
+      "path": "/succession"
+    }
   }
 }

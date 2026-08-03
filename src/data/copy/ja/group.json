@@ -27,17 +27,42 @@
       {
         "term": "2016",
         "tone": "default",
-        "body": "MDMC創業。ニュージーランド・オークランドにてFinlayson Holdings設立（8月）。"
+        "body": "ニュージーランド・クライストチャーチにてMDMC創業、同年8月にFinlayson Holdings設立。最初のクライアントとのお取引が始まり、その関係は現在も続いています。"
       },
       {
-        "term": "2016 – 2026",
+        "term": "2017",
         "tone": "default",
-        "body": "エンジニアリング部門としてPerpetua Softwareを設立。10年にわたる継続的な事業運営。主要クライアントとのお取引は10年を超えました。"
+        "body": "後にグループのエンジニアリング部門となる、Perpetua Softwareの前身となる会社を設立。"
+      },
+      {
+        "term": "2019",
+        "tone": "default",
+        "body": "初の正社員が加わり、クライストチャーチに常設オフィスを開設。主要クライアントに向けて、業界初のオンライン予約プラットフォームを公開。"
+      },
+      {
+        "term": "2022",
+        "tone": "default",
+        "body": "プロジェクトが海外へ — 米国、そしてフィリピンでのプロジェクトを完了。"
+      },
+      {
+        "term": "2023",
+        "tone": "default",
+        "body": "主要クライアントのため、ニュージーランド・オーストラリア両国で稼働するリアルタイムのレポーティング・プラットフォームを公開。"
+      },
+      {
+        "term": "2024",
+        "tone": "default",
+        "body": "ニュージーランドとオーストラリアでチームが拡大。Perpetua Softwareはオーストラリアで初の採用。"
+      },
+      {
+        "term": "2025",
+        "tone": "default",
+        "body": "主要クライアントの二度目となる全面リブランドを完了。横浜への拠点設立の認可を取得。"
       },
       {
         "term": "2026",
         "tone": "accent",
-        "body": "Finlayson Holdings Japan株式会社を横浜に設立（7月）。グループ第二の拠点。"
+        "body": "Finlayson Holdings Japan株式会社を横浜に設立（7月）。中区のKITANAKA BRICK & WHITEに日本初のオフィスを開設し、国内初のプロジェクトとして、インバウンド観光分野のバイリンガルサイトと予約システムを公開。主要クライアントとのお取引は10年を迎えました。"
       },
       {
         "term": "これから",
@@ -48,13 +73,43 @@
   },
   "structure": {
     "label": "体制",
-    "parent": { "name": "Finlayson Holdings Ltd", "sub": "ニュージーランド — 2016年設立" },
-    "japanEntity": { "name": "Finlayson Holdings Japan 株式会社", "sub": "日本 — 2026年設立" },
-    "children": [
-      { "name": "MDMC", "sub": "ブランド・デザイン", "style": "solid", "gatedBySecurityFlag": false },
-      { "name": "Perpetua Software", "sub": "エンジニアリング", "style": "solid", "gatedBySecurityFlag": false },
-      { "name": "セキュリティ", "sub": "準備中", "style": "dashed", "gatedBySecurityFlag": true },
-      { "name": "承継会社", "sub": "事業承継により", "style": "dashed", "gatedBySecurityFlag": false }
+    "entities": [
+      {
+        "name": "Finlayson Holdings New Zealand",
+        "sub": "2016年設立",
+        "children": [
+          {
+            "name": "MDMC",
+            "sub": "ブランド・デザイン",
+            "style": "solid",
+            "gatedBySecurityFlag": false
+          },
+          {
+            "name": "Perpetua Software",
+            "sub": "エンジニアリング",
+            "style": "solid",
+            "gatedBySecurityFlag": false
+          }
+        ]
+      },
+      {
+        "name": "Finlayson Holdings Japan",
+        "sub": "2026年設立",
+        "children": [
+          {
+            "name": "セキュリティ",
+            "sub": "準備中",
+            "style": "dashed",
+            "gatedBySecurityFlag": true
+          },
+          {
+            "name": "承継会社",
+            "sub": "事業承継により",
+            "style": "dashed",
+            "gatedBySecurityFlag": false
+          }
+        ]
+      }
     ]
   }
 }
