@@ -1,0 +1,224 @@
+---
+import Base from '../../layouts/Base.astro';
+import copyEn from '../../data/copy/en/companies.json';
+import copyJa from '../../data/copy/ja/companies.json';
+import { site } from '../../data/site';
+
+interface Props {
+  locale: 'en' | 'ja';
+}
+
+const { locale } = Astro.props;
+const t = { en: copyEn, ja: copyJa }[locale];
+const title =
+  locale === 'ja' ? '事業会社 — Finlayson Holdings' : 'The Companies — Finlayson Holdings';
+---
+
+<Base locale={locale} slug="companies" title={title} description={t.masthead.lede}>
+  <section class="masthead">
+    <p class="masthead__label">{t.masthead.label}</p>
+    <h1>{t.masthead.h1}</h1>
+    <p class="masthead__lede">{t.masthead.lede}</p>
+  </section>
+
+  {
+    t.companies.map((c) => (
+      <section class="band">
+        <div class="band__rail">
+          <span class="band__label band__label--num">{c.railLabel}</span>
+        </div>
+        <div class="band__content">
+          <div class="name-row">
+            <h2>{c.name}</h2>
+            <span class="tag">{c.tag}</span>
+          </div>
+          <p class="desc">{c.description}</p>
+          <ul class="services">
+            {c.services.map((s) => (
+              <li class:list={[{ muted: s.muted }]}>{s.label}</li>
+            ))}
+          </ul>
+          <div class="proof-row">
+            <p class="proof">
+              <span class="proof__label">{c.proof.label}</span>
+              {c.proof.text}
+            </p>
+            <a class="btn-ink btn-ink--sm" href={c.cta.url} target="_blank" rel="noopener">
+              {c.cta.label}
+            </a>
+          </div>
+        </div>
+      </section>
+    ))
+  }
+
+  {
+    site.showSecurity && (
+      <section class="band band--warm">
+        <div class="band__rail band__rail--muted">
+          <span class="band__label band__label--num muted-label">{t.security.railLabel}</span>
+        </div>
+        <div class="band__content security">
+          <div>
+            <h2>{t.security.title}</h2>
+            <p>{t.security.body}</p>
+          </div>
+          <span class="chip">{t.security.chip}</span>
+        </div>
+      </section>
+    )
+  }
+</Base>
+
+<style>
+  .name-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+    margin-bottom: 16px;
+    max-width: 760px;
+  }
+
+  .name-row h2 {
+    font-weight: 600;
+    font-size: 32px;
+    letter-spacing: -0.01em;
+    font-family: var(--font-latin);
+  }
+
+  .tag {
+    font-size: 12px;
+    color: var(--ink-45);
+    letter-spacing: 0.1em;
+  }
+
+  .tag:lang(ja) {
+    letter-spacing: 0;
+  }
+
+  .desc {
+    margin: 0 0 34px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink-66);
+    max-width: 600px;
+  }
+
+  .desc:lang(ja) {
+    font-size: 14.5px;
+    line-height: 2;
+    max-width: 620px;
+  }
+
+  .services {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 48px;
+    font-size: 13.5px;
+    color: var(--ink-72);
+    max-width: 760px;
+    border-top: var(--hairline-inner);
+    margin-bottom: 34px;
+  }
+
+  .services li {
+    padding: 10px 0;
+    border-bottom: var(--hairline-inner);
+  }
+
+  .services li.muted {
+    color: var(--ink-45);
+  }
+
+  .proof-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    max-width: 760px;
+    flex-wrap: wrap;
+  }
+
+  .proof {
+    font-size: 13px;
+    color: var(--ink-55);
+    max-width: 440px;
+  }
+
+  .proof__label {
+    color: var(--vermilion);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    margin-right: 10px;
+  }
+
+  .proof__label:lang(ja) {
+    letter-spacing: 0.14em;
+  }
+
+  .btn-ink--sm {
+    padding: 12px 22px;
+  }
+
+  /* Band 03 — Security */
+  .band__rail--muted {
+    padding: 48px 0 56px var(--side);
+  }
+
+  .muted-label {
+    color: var(--ink-40);
+  }
+
+  .security {
+    padding: 48px var(--side) 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .security h2 {
+    font-weight: 600;
+    font-size: 19px;
+    color: var(--ink-60);
+    margin-bottom: 8px;
+  }
+
+  .security p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink-50);
+    max-width: 520px;
+  }
+
+  .security p:lang(ja) {
+    font-size: 13.5px;
+    line-height: 1.9;
+  }
+
+  .chip {
+    font-size: 11.5px;
+    letter-spacing: 0.16em;
+    color: var(--ink-45);
+    border: 1px solid var(--ink-25);
+    padding: 7px 14px;
+    white-space: nowrap;
+  }
+
+  .chip:lang(ja) {
+    letter-spacing: 0.2em;
+  }
+
+  @media (max-width: 900px) {
+    .services {
+      grid-template-columns: 1fr;
+    }
+
+    .band__rail--muted {
+      padding: 40px var(--side) 0;
+    }
+  }
+</style>

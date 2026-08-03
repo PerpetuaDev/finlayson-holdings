@@ -1,0 +1,85 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import MenuOverlay from '../components/MenuOverlay.astro';
+import Footer from '../components/Footer.astro';
+import { localePath } from '../lib/paths';
+
+interface Props {
+  locale: 'en' | 'ja';
+  slug: string; // '' for home, 'group', 'succession/japan', …
+  title: string;
+  description?: string;
+}
+
+const { locale, slug, title, description } = Astro.props;
+const otherLocale = locale === 'en' ? 'ja' : 'en';
+const pathFor = (l: string) => localePath(l, slug ? `/${slug}` : '');
+---
+
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="alternate" hreflang={otherLocale} href={pathFor(otherLocale)} />
+    <link rel="alternate" hreflang={locale} href={pathFor(locale)} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@500&display=swap"
+    />
+  </head>
+  <body>
+    <Header locale={locale} slug={slug} />
+    <MenuOverlay locale={locale} slug={slug} />
+    <main>
+      <slot />
+    </main>
+    <Footer locale={locale} slug={slug} />
+
+    <script>
+      // Explicit language choice persists (README: localStorage 'fh_lang');
+      // the root page reads it for first-visit negotiation.
+      document.querySelectorAll<HTMLElement>('[data-set-lang]').forEach((el) => {
+        el.addEventListener('click', () => {
+          localStorage.setItem('fh_lang', el.dataset.setLang!);
+        });
+      });
+
+      // Menu overlay: burger opens, ✕ or any link closes; Escape closes.
+      const overlay = document.getElementById('menu-overlay');
+      const burger = document.getElementById('menu-open');
+      const setMenu = (open: boolean) => {
+        overlay?.toggleAttribute('data-open', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+        burger?.setAttribute('aria-expanded', String(open));
+        if (open) overlay?.querySelector<HTMLElement>('a, button')?.focus();
+      };
+      burger?.addEventListener('click', () => setMenu(true));
+      overlay?.addEventListener('click', (e) => {
+        const t = e.target as HTMLElement;
+        if (t.closest('[data-menu-close]') || t.closest('a')) setMenu(false);
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay?.hasAttribute('data-open')) setMenu(false);
+        // Focus trap while the overlay is open
+        if (e.key === 'Tab' && overlay?.hasAttribute('data-open')) {
+          const focusables = overlay.querySelectorAll<HTMLElement>('a[href], button');
+          if (!focusables.length) return;
+          const first = focusables[0];
+          const last = focusables[focusables.length - 1];
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+{
+  "masthead": {
+    "h1": "We build and keep\ngood businesses.",
+    "lede": "A permanent holding company for design, software, and the businesses that deserve to continue.",
+    "meta": [
+      "FOUNDED IN NEW ZEALAND, 2016",
+      "OPERATING IN JAPAN SINCE 2026"
+    ]
+  },
+  "operate": {
+    "label": "WHAT WE\nOPERATE",
+    "companies": [
+      {
+        "name": "MDMC",
+        "tag": "SINCE 2016",
+        "description": "Brand, digital strategy, and design for clients internationally.",
+        "services": [
+          "Branding & identity",
+          "Web & platform design",
+          "Digital product & experience",
+          "Print & collateral"
+        ],
+        "linkText": "mdmc.co ↗",
+        "url": "https://mdmc.co"
+      },
+      {
+        "name": "Perpetua Software",
+        "tag": "ENGINEERING",
+        "description": "Software development and engineering, from custom systems to managed infrastructure.",
+        "services": [
+          "Custom software & integrations",
+          "Web & mobile applications",
+          "Security, data & AI",
+          "Cloud & managed infrastructure"
+        ],
+        "linkText": "perpetua.studio ↗",
+        "url": "https://perpetua.studio"
+      }
+    ]
+  },
+  "believe": {
+    "label": "WHAT WE\nBELIEVE",
+    "items": [
+      {
+        "index": "01",
+        "title": "Permanent ownership",
+        "body": "We do not buy to sell. When a business joins the group, it stays."
+      },
+      {
+        "index": "02",
+        "title": "Craft first",
+        "body": "We are operators, not a fund. We work where we own."
+      },
+      {
+        "index": "03",
+        "title": "Long horizons",
+        "body": "Decisions measured in decades, not quarters."
+      }
+    ]
+  },
+  "succession": {
+    "label": "SUCCESSION",
+    "heading": "Continuing what you built.",
+    "body": "When an owner is ready to step back, we provide a permanent home for the business — the name, the people, and the relationships stay.",
+    "note": "Conversations are confidential and without obligation. We work alongside your existing advisors.",
+    "cta": { "label": "About succession →", "path": "/succession" }
+  }
+}

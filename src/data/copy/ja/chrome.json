@@ -1,0 +1,92 @@
+{
+  "header": {
+    "logoAlt": "Finlayson Holdings",
+    "nav": [
+      { "label": "グループについて", "path": "/group" },
+      { "label": "事業会社", "path": "/companies" },
+      { "label": "事業承継", "path": "/succession" },
+      { "label": "パートナー", "path": "/partners" },
+      { "label": "お知らせ", "path": "/news" },
+      { "label": "お問い合わせ", "path": "/contact" }
+    ],
+    "langToggle": { "en": "EN", "ja": "日本語" },
+    "menuButtonAriaLabel": "メニュー"
+  },
+  "menuOverlay": {
+    "closeAriaLabel": "閉じる",
+    "index": [
+      { "number": "01", "label": "ホーム", "path": "/", "sub": false },
+      { "number": "02", "label": "グループについて", "path": "/group", "sub": false },
+      { "number": "03", "label": "事業会社", "path": "/companies", "sub": false },
+      { "number": "04", "label": "事業承継", "path": "/succession", "sub": false },
+      { "number": "04.1", "label": "日本プログラム — ご相談", "path": "/succession/japan", "sub": true },
+      { "number": "05", "label": "資本・パートナー", "path": "/partners", "sub": false },
+      { "number": "06", "label": "経営体制", "path": "/leadership", "sub": false },
+      { "number": "07", "label": "お知らせ", "path": "/news", "sub": false },
+      { "number": "08", "label": "お問い合わせ", "path": "/contact", "sub": false }
+    ],
+    "operatingCompanies": {
+      "label": "事業会社",
+      "companies": [
+        { "name": "MDMC ↗", "description": "ブランド・デザイン", "url": "https://mdmc.co" },
+        { "name": "Perpetua Software ↗", "description": "ソフトウェアエンジニアリング", "url": "https://perpetua.studio" }
+      ]
+    },
+    "langToggle": { "en": "EN", "ja": "日本語" },
+    "address": {
+      "lines": [
+        "Finlayson Holdings Japan 株式会社",
+        "〒231-0003 神奈川県横浜市中区北仲通",
+        "KITANAKA BRICK & WHITE"
+      ],
+      "regions": "ニュージーランド · 日本"
+    }
+  },
+  "footer": {
+    "columns": [
+      {
+        "header": "グループ",
+        "links": [
+          { "label": "グループについて", "href": "/group", "external": false },
+          { "label": "理念とモデル", "href": "/group", "external": false },
+          { "label": "経営体制", "href": "/leadership", "external": false },
+          { "label": "お知らせ", "href": "/news", "external": false }
+        ],
+        "securityItem": null
+      },
+      {
+        "header": "事業会社",
+        "links": [
+          { "label": "事業会社一覧", "href": "/companies", "external": false },
+          { "label": "MDMC ↗", "href": "https://mdmc.co", "external": true },
+          { "label": "Perpetua Software ↗", "href": "https://perpetua.studio", "external": true }
+        ],
+        "securityItem": "セキュリティ — 準備中"
+      },
+      {
+        "header": "事業承継",
+        "links": [
+          { "label": "私たちの考え方", "href": "/succession", "external": false },
+          { "label": "日本プログラム", "href": "/succession/japan", "external": false },
+          { "label": "顧問の方へ", "href": "/succession/japan", "external": false }
+        ],
+        "securityItem": null
+      },
+      {
+        "header": "お問い合わせ",
+        "links": [
+          { "label": "資本・パートナー", "href": "/partners", "external": false },
+          { "label": "お問い合わせ", "href": "/contact", "external": false },
+          { "label": "制作・開発のご依頼", "href": "/companies", "external": false }
+        ],
+        "securityItem": null
+      }
+    ],
+    "baseline": {
+      "copyright": "© 2026 Finlayson Holdings Ltd（2016年8月 オークランド設立）· Finlayson Holdings Japan株式会社（横浜）",
+      "langSwitch": { "en": "English", "ja": "日本語" },
+      "privacy": "プライバシー",
+      "legal": "特定商取引法"
+    }
+  }
+}

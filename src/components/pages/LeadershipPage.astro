@@ -1,0 +1,126 @@
+---
+import Base from '../../layouts/Base.astro';
+import copyEn from '../../data/copy/en/leadership.json';
+import copyJa from '../../data/copy/ja/leadership.json';
+
+interface Props {
+  locale: 'en' | 'ja';
+}
+
+const { locale } = Astro.props;
+const t = { en: copyEn, ja: copyJa }[locale];
+const title =
+  locale === 'ja' ? '経営体制 — Finlayson Holdings' : 'Leadership — Finlayson Holdings';
+---
+
+<Base locale={locale} slug="leadership" title={title}>
+  <section class="masthead">
+    <p class="masthead__label">{t.masthead.label}</p>
+    <h1>{t.masthead.h1}</h1>
+    <p class="sub">{t.masthead.sub}</p>
+  </section>
+
+  <section class="band">
+    <div class="band__rail"><span class="band__label">{t.profile.label}</span></div>
+    <div class="profile">
+      <div class="portrait">
+        <span class="portrait__caption">{t.profile.portraitPlaceholder}</span>
+      </div>
+      <div class="bio">
+        {t.profile.paragraphs.map((p) => <p class="para">{p}</p>)}
+        <dl class="facts">
+          {
+            t.profile.facts.map((f) => (
+              <div class="facts__row">
+                <dt>{f.term}</dt>
+                <dd>{f.value}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .sub {
+    font-size: 14px;
+    color: var(--ink-55);
+    margin-top: 16px;
+  }
+
+  .profile {
+    border-left: var(--hairline);
+    padding: 64px var(--side) 72px;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+
+  /* Placeholder until the real shoot — same 300×380 slot (README: Fidelity) */
+  .portrait {
+    width: 300px;
+    height: 380px;
+    background: repeating-linear-gradient(45deg, #f1efea 0 12px, #ebe8e2 12px 24px);
+    border: 1px solid rgba(35, 31, 32, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .portrait__caption {
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 11px;
+    color: var(--ink-50);
+    letter-spacing: 0.06em;
+  }
+
+  .bio {
+    max-width: 560px;
+  }
+
+  .para {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--ink-72);
+    margin: 0 0 22px;
+  }
+
+  .para:lang(ja) {
+    font-size: 14.5px;
+    line-height: 2.1;
+  }
+
+  .facts {
+    font-size: 13.5px;
+    max-width: 420px;
+    border-top: var(--hairline-inner);
+    margin-top: 34px;
+  }
+
+  .facts__row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    padding: 11px 0;
+    border-bottom: var(--hairline-inner);
+  }
+
+  .facts dt {
+    color: var(--ink-50);
+  }
+
+  @media (max-width: 900px) {
+    .profile {
+      border-left: none;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding: 40px var(--side) 56px;
+    }
+
+    .portrait {
+      max-width: 100%;
+    }
+  }
+</style>

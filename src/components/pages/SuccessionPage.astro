@@ -1,0 +1,140 @@
+---
+import Base from '../../layouts/Base.astro';
+import copyEn from '../../data/copy/en/succession.json';
+import copyJa from '../../data/copy/ja/succession.json';
+import { localePath } from '../../lib/paths';
+
+interface Props {
+  locale: 'en' | 'ja';
+}
+
+const { locale } = Astro.props;
+const t = { en: copyEn, ja: copyJa }[locale];
+const title =
+  locale === 'ja' ? '事業承継 — Finlayson Holdings' : 'Succession — Finlayson Holdings';
+---
+
+<Base locale={locale} slug="succession" title={title} description={t.masthead.lede}>
+  <section class="masthead">
+    <p class="masthead__label">{t.masthead.label}</p>
+    <h1 class="serif">{t.masthead.h1}</h1>
+    <p class="masthead__lede">{t.masthead.lede}</p>
+  </section>
+
+  <section class="band">
+    <div class="band__rail"><span class="band__label">{t.programs.label}</span></div>
+    <div class="band__content band__content--flush">
+      <a class="program" href={localePath(locale, t.programs.japan.path)}>
+        <div>
+          <div class="program__name">{t.programs.japan.name}</div>
+          <div class="program__subtitle">{t.programs.japan.subtitle}</div>
+        </div>
+        <p class="program__desc">{t.programs.japan.description}</p>
+        <span class="program__arrow">→</span>
+      </a>
+      <div class="def-row further">
+        <div class="further__term">{t.programs.further.term}</div>
+        <p class="further__body">{t.programs.further.body}</p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .serif {
+    font-family: var(--font-editorial);
+    font-size: 54px;
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+    max-width: 860px;
+  }
+
+  .serif:lang(ja) {
+    font-size: 42px;
+    line-height: 1.6;
+    letter-spacing: 0.04em;
+  }
+
+  .program {
+    display: grid;
+    grid-template-columns: 200px 1fr auto;
+    gap: 32px;
+    align-items: center;
+    padding: 52px var(--side);
+    border-bottom: var(--hairline-inner);
+  }
+
+  .program:hover {
+    background: var(--paper-warm);
+    color: var(--ink);
+  }
+
+  .program__name {
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+  }
+
+  .program__name:lang(ja) {
+    letter-spacing: 0;
+  }
+
+  .program__subtitle {
+    font-size: 13px;
+    color: var(--vermilion);
+    margin-top: 6px;
+    font-family: var(--font-jp);
+  }
+
+  .program__desc {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: var(--ink-66);
+    max-width: 520px;
+  }
+
+  .program__desc:lang(ja) {
+    font-size: 14px;
+    line-height: 2;
+  }
+
+  .program__arrow {
+    font-size: 20px;
+  }
+
+  .further {
+    color: var(--ink-45);
+  }
+
+  .further__term {
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  .further__body {
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 520px;
+  }
+
+  .further__body:lang(ja) {
+    font-size: 13.5px;
+    line-height: 2;
+  }
+
+  @media (max-width: 900px) {
+    .serif {
+      font-size: 36px;
+    }
+
+    .serif:lang(ja) {
+      font-size: 28px;
+    }
+
+    .program {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      padding: 36px var(--side);
+    }
+  }
+</style>

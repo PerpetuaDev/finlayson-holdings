@@ -1,0 +1,53 @@
+{
+  "masthead": {
+    "label": "THE COMPANIES",
+    "h1": "Two operating companies,\nheld permanently.",
+    "lede": "Each runs under its own name, with its own clients and its own craft. Client work begins on their sites, not here."
+  },
+  "companies": [
+    {
+      "railLabel": "01",
+      "name": "MDMC",
+      "tag": "BRAND & DESIGN — SINCE 2016",
+      "description": "Brand, digital strategy, and design for clients internationally — currently expanding in the Japanese market, with bilingual delivery through the group's Yokohama entity.",
+      "services": [
+        { "label": "Branding & identity", "muted": false },
+        { "label": "Web & platform design", "muted": false },
+        { "label": "Digital product design", "muted": false },
+        { "label": "Experience design", "muted": false },
+        { "label": "Print & collateral", "muted": false },
+        { "label": "Bilingual delivery — EN / JP", "muted": true }
+      ],
+      "proof": {
+        "label": "RECENT",
+        "text": "Japanese-market work including the inbound tourism sector."
+      },
+      "cta": { "label": "Visit mdmc.co ↗", "url": "https://mdmc.co" }
+    },
+    {
+      "railLabel": "02",
+      "name": "Perpetua Software",
+      "tag": "SOFTWARE ENGINEERING",
+      "description": "Software development and engineering for organisations that depend on their systems — built carefully, run for the long term.",
+      "services": [
+        { "label": "Custom software & integrations", "muted": false },
+        { "label": "Web & mobile applications", "muted": false },
+        { "label": "Security & compliance", "muted": false },
+        { "label": "Data & analytics", "muted": false },
+        { "label": "AI & automation", "muted": false },
+        { "label": "Cloud & managed infrastructure", "muted": false }
+      ],
+      "proof": {
+        "label": "ANCHOR",
+        "text": "An enterprise client relationship of more than ten years — booking-platform and employee-hub class systems."
+      },
+      "cta": { "label": "Visit perpetua.studio ↗", "url": "https://perpetua.studio" }
+    }
+  ],
+  "security": {
+    "railLabel": "03",
+    "title": "Security & Compliance",
+    "body": "A third operating company, in preparation.",
+    "chip": "LAUNCHING"
+  }
+}

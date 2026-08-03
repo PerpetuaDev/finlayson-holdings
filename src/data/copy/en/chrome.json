@@ -1,0 +1,92 @@
+{
+  "header": {
+    "logoAlt": "Finlayson Holdings",
+    "nav": [
+      { "label": "Group", "path": "/group" },
+      { "label": "Companies", "path": "/companies" },
+      { "label": "Succession", "path": "/succession" },
+      { "label": "Partners", "path": "/partners" },
+      { "label": "News", "path": "/news" },
+      { "label": "Contact", "path": "/contact" }
+    ],
+    "langToggle": { "en": "EN", "ja": "日本語" },
+    "menuButtonAriaLabel": "Menu"
+  },
+  "menuOverlay": {
+    "closeAriaLabel": "Close",
+    "index": [
+      { "number": "01", "label": "Home", "path": "/", "sub": false },
+      { "number": "02", "label": "The group", "path": "/group", "sub": false },
+      { "number": "03", "label": "The companies", "path": "/companies", "sub": false },
+      { "number": "04", "label": "Succession", "path": "/succession", "sub": false },
+      { "number": "04.1", "label": "Japan — 事業承継", "path": "/succession/japan", "sub": true },
+      { "number": "05", "label": "Partners", "path": "/partners", "sub": false },
+      { "number": "06", "label": "Leadership", "path": "/leadership", "sub": false },
+      { "number": "07", "label": "News", "path": "/news", "sub": false },
+      { "number": "08", "label": "Contact", "path": "/contact", "sub": false }
+    ],
+    "operatingCompanies": {
+      "label": "OPERATING COMPANIES",
+      "companies": [
+        { "name": "MDMC ↗", "description": "Brand and design", "url": "https://mdmc.co" },
+        { "name": "Perpetua Software ↗", "description": "Software engineering", "url": "https://perpetua.studio" }
+      ]
+    },
+    "langToggle": { "en": "EN", "ja": "日本語" },
+    "address": {
+      "lines": [
+        "Finlayson Holdings Japan KK",
+        "KITANAKA BRICK & WHITE",
+        "Kitanakadori, Naka-ku, Yokohama"
+      ],
+      "regions": "New Zealand · Japan"
+    }
+  },
+  "footer": {
+    "columns": [
+      {
+        "header": "GROUP",
+        "links": [
+          { "label": "About the group", "href": "/group", "external": false },
+          { "label": "Philosophy & model", "href": "/group", "external": false },
+          { "label": "Leadership", "href": "/leadership", "external": false },
+          { "label": "News", "href": "/news", "external": false }
+        ],
+        "securityItem": null
+      },
+      {
+        "header": "COMPANIES",
+        "links": [
+          { "label": "Overview", "href": "/companies", "external": false },
+          { "label": "MDMC ↗", "href": "https://mdmc.co", "external": true },
+          { "label": "Perpetua Software ↗", "href": "https://perpetua.studio", "external": true }
+        ],
+        "securityItem": "Security — launching"
+      },
+      {
+        "header": "SUCCESSION",
+        "links": [
+          { "label": "Our approach", "href": "/succession", "external": false },
+          { "label": "Japan program", "href": "/succession/japan", "external": false },
+          { "label": "For advisors", "href": "/succession/japan", "external": false }
+        ],
+        "securityItem": null
+      },
+      {
+        "header": "CONTACT",
+        "links": [
+          { "label": "Capital & partners", "href": "/partners", "external": false },
+          { "label": "General inquiries", "href": "/contact", "external": false },
+          { "label": "Client inquiries", "href": "/companies", "external": false }
+        ],
+        "securityItem": null
+      }
+    ],
+    "baseline": {
+      "copyright": "© 2026 Finlayson Holdings Ltd — est. Auckland, August 2016 · Finlayson Holdings Japan KK, Yokohama",
+      "langSwitch": { "en": "English", "ja": "日本語" },
+      "privacy": "Privacy",
+      "legal": "Legal"
+    }
+  }
+}

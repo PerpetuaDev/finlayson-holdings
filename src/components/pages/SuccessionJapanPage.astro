@@ -1,0 +1,274 @@
+---
+import Base from '../../layouts/Base.astro';
+import copyEn from '../../data/copy/en/succession-japan.json';
+import copyJa from '../../data/copy/ja/succession-japan.json';
+import { localePath } from '../../lib/paths';
+
+interface Props {
+  locale: 'en' | 'ja';
+}
+
+const { locale } = Astro.props;
+const t = { en: copyEn, ja: copyJa }[locale];
+const title =
+  locale === 'ja'
+    ? '事業承継のご相談 — Finlayson Holdings'
+    : 'Succession in Japan — Finlayson Holdings';
+const s = t.sections;
+---
+
+<Base locale={locale} slug="succession/japan" title={title} description={t.masthead.lede}>
+  <section class="masthead masthead--warm">
+    <p class="masthead__label">{t.masthead.label}</p>
+    <h1 class="serif">{t.masthead.h1}</h1>
+    <p class="masthead__lede">{t.masthead.lede}</p>
+    {
+      t.masthead.readInJapanese && (
+        <p class="read-ja">
+          {t.masthead.readInJapanese.prefix}
+          <a href={localePath('ja', '/succession/japan')} data-set-lang="ja">
+            {t.masthead.readInJapanese.linkText}
+          </a>
+        </p>
+      )
+    }
+  </section>
+
+  <section class="band">
+    <div class="band__rail"><span class="band__label band__label--num">{s.commonality.number}</span></div>
+    <div class="band__content">
+      <h2 class="h2">{s.commonality.h2}</h2>
+      <p class="body">{s.commonality.body}</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band__rail"><span class="band__label band__label--num">{s.offer.number}</span></div>
+    <div class="band__content">
+      <h2 class="h2">{s.offer.h2}</h2>
+      <p class="body">{s.offer.body}</p>
+      <ul class="ruled">
+        {s.offer.list.map((line) => <li>{line}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band__rail"><span class="band__label band__label--num">{s.fit.number}</span></div>
+    <div class="band__content">
+      <h2 class="h2">{s.fit.h2}</h2>
+      <dl class="criteria">
+        {
+          s.fit.criteria.map((c) => (
+            <>
+              <dt>{c.term}</dt>
+              <dd>{c.body}</dd>
+            </>
+          ))
+        }
+      </dl>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band__rail"><span class="band__label band__label--num">{s.process.number}</span></div>
+    <div class="band__content">
+      <h2 class="h2">{s.process.h2}</h2>
+      <ol class="steps">
+        {
+          s.process.steps.map((step) => (
+            <li>
+              <span class="marker">{step.marker}</span>
+              <span class="text">{step.text}</span>
+            </li>
+          ))
+        }
+      </ol>
+      <p class="closing">{s.process.closing}</p>
+    </div>
+  </section>
+
+  <section class="band band--warm" id="advisors">
+    <div class="band__rail"><span class="band__label band__label--num">{s.advisors.number}</span></div>
+    <div class="band__content">
+      <h2 class="h2">{s.advisors.h2}</h2>
+      <p class="body">{s.advisors.body}</p>
+      <a class="btn-ink cta" href={localePath(locale, s.advisors.cta.path)}>{s.advisors.cta.label}</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .masthead--warm {
+    background: var(--paper-warm);
+  }
+
+  .masthead--warm:lang(ja) {
+    padding: 110px var(--side) 90px;
+  }
+
+  .serif {
+    font-family: var(--font-editorial);
+    font-size: 54px;
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+  }
+
+  .serif:lang(ja) {
+    font-size: 46px;
+    line-height: 1.65;
+    letter-spacing: 0.05em;
+    margin: 0 0 30px;
+    max-width: 900px;
+  }
+
+  .read-ja {
+    margin-top: 36px;
+    font-size: 13px;
+    color: var(--ink-55);
+    font-family: var(--font-jp);
+  }
+
+  .read-ja a {
+    color: var(--vermilion);
+    border-bottom: 1px solid var(--vermilion);
+  }
+
+  .h2 {
+    font-family: var(--font-editorial);
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 1.4;
+    margin: 0 0 18px;
+    max-width: 640px;
+  }
+
+  .h2:lang(ja) {
+    font-size: 26px;
+    line-height: 1.8;
+    letter-spacing: 0.03em;
+    margin: 0 0 22px;
+  }
+
+  .body {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--ink-66);
+    max-width: 620px;
+  }
+
+  .body:lang(ja) {
+    font-size: 14.5px;
+    line-height: 2.1;
+  }
+
+  .ruled {
+    font-size: 14.5px;
+    color: var(--ink-75);
+    max-width: 620px;
+    border-top: var(--hairline-inner);
+    margin-top: 26px;
+  }
+
+  .ruled li {
+    padding: 13px 0;
+    border-bottom: var(--hairline-inner);
+  }
+
+  .ruled:lang(ja) li {
+    padding: 14px 0;
+  }
+
+  .criteria {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 16px 32px;
+    font-size: 14.5px;
+    line-height: 1.7;
+    max-width: 680px;
+  }
+
+  .criteria:lang(ja) {
+    gap: 18px 32px;
+    line-height: 2;
+  }
+
+  .criteria dt {
+    font-weight: 600;
+  }
+
+  .criteria dd {
+    color: var(--ink-66);
+  }
+
+  .steps {
+    max-width: 680px;
+    border-top: var(--hairline-inner);
+  }
+
+  .steps li {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 20px;
+    padding: 18px 0;
+    border-bottom: var(--hairline-inner);
+  }
+
+  .steps:lang(ja) li {
+    padding: 19px 0;
+  }
+
+  .marker {
+    color: var(--vermilion);
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  .steps .text {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: var(--ink-72);
+  }
+
+  .steps .text:lang(ja) {
+    line-height: 2;
+  }
+
+  .closing {
+    margin: 26px 0 0;
+    font-size: 14px;
+    color: var(--ink-55);
+  }
+
+  .closing:lang(ja) {
+    font-size: 13.5px;
+    line-height: 2;
+  }
+
+  .cta {
+    margin-top: 30px;
+  }
+
+  @media (max-width: 900px) {
+    .masthead--warm:lang(ja) {
+      padding: 72px var(--side) 56px;
+    }
+
+    .serif {
+      font-size: 34px;
+    }
+
+    .serif:lang(ja) {
+      font-size: 28px;
+    }
+
+    .criteria {
+      grid-template-columns: 1fr;
+      gap: 4px 0;
+    }
+
+    .criteria dd {
+      margin-bottom: 14px;
+    }
+  }
+</style>

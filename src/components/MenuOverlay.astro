@@ -1,0 +1,268 @@
+---
+import chromeEn from '../data/copy/en/chrome.json';
+import chromeJa from '../data/copy/ja/chrome.json';
+import { localePath, withBase } from '../lib/paths';
+
+interface Props {
+  locale: 'en' | 'ja';
+  slug: string;
+}
+
+const { locale, slug } = Astro.props;
+const chrome = { en: chromeEn, ja: chromeJa }[locale];
+const m = chrome.menuOverlay;
+const pathFor = (l: string) => localePath(l, slug ? `/${slug}` : '');
+const localize = (path: string) => localePath(locale, path === '/' ? '' : path);
+---
+
+<div
+  id="menu-overlay"
+  class="overlay"
+  role="dialog"
+  aria-modal="true"
+  aria-label={chrome.header.menuButtonAriaLabel}
+>
+  <div class="overlay-header">
+    <a href={localePath(locale)}>
+      <img src={withBase('/assets/fh-logo-white.svg')} alt={chrome.header.logoAlt} />
+    </a>
+    <button data-menu-close class="close" aria-label={m.closeAriaLabel}>✕</button>
+  </div>
+  <div class="overlay-grid">
+    <nav class="index">
+      {
+        m.index.map((row) => (
+          <a class="row" class:list={[{ 'row--sub': row.sub }]} href={localize(row.path)}>
+            <span class="label">{row.label}</span>
+            <span class="num">{row.number}</span>
+          </a>
+        ))
+      }
+    </nav>
+    <aside class="side">
+      <div class="oc">
+        <h2 class="oc-header">{m.operatingCompanies.label}</h2>
+        {
+          m.operatingCompanies.companies.map((c) => (
+            <div class="oc-item">
+              <a href={c.url} target="_blank" rel="noopener">
+                {c.name}
+              </a>
+              <p>{c.description}</p>
+            </div>
+          ))
+        }
+      </div>
+      <div class="side-bottom">
+        <div class="lang-toggle">
+          <a href={pathFor('en')} data-set-lang="en" class:list={[{ active: locale === 'en' }]}>
+            {m.langToggle.en}
+          </a>
+          <a href={pathFor('ja')} data-set-lang="ja" class:list={[{ active: locale === 'ja' }]}>
+            {m.langToggle.ja}
+          </a>
+        </div>
+        <address class="address">
+          {m.address.lines.map((line) => <span>{line}</span>)}
+          <span>{m.address.regions}</span>
+        </address>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<style>
+  .overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: var(--ink);
+    color: var(--paper);
+    display: none;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .overlay[data-open] {
+    display: flex;
+  }
+
+  .overlay a {
+    color: var(--paper);
+  }
+
+  .overlay a:hover {
+    color: var(--vermilion-dark-ground);
+  }
+
+  .overlay-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 26px var(--side);
+    border-bottom: var(--hairline-dark);
+  }
+
+  .overlay-header img {
+    height: 15px;
+    width: auto;
+  }
+
+  .close {
+    font-size: 22px;
+    line-height: 1;
+    color: var(--paper);
+    padding: 4px;
+    transition: color var(--transition);
+  }
+
+  .close:hover {
+    color: var(--vermilion-dark-ground);
+  }
+
+  .overlay-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+  }
+
+  .index {
+    padding: var(--side);
+    border-right: var(--hairline-dark);
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+    padding: 16px 0;
+    border-bottom: var(--hairline-dark);
+  }
+
+  .row .label {
+    font-size: 32px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .row .label:lang(ja) {
+    font-size: 28px;
+    letter-spacing: 0;
+  }
+
+  .row--sub {
+    padding-left: 28px;
+    color: var(--paper-75);
+  }
+
+  .row--sub .label {
+    font-size: 19px;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  .row--sub .label:lang(ja) {
+    font-size: 17px;
+  }
+
+  .num {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--paper-40);
+    flex-shrink: 0;
+  }
+
+  .side {
+    padding: var(--side) 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 48px;
+  }
+
+  .oc-header {
+    font-size: 11.5px;
+    font-weight: 400;
+    letter-spacing: var(--label-ls);
+    text-transform: uppercase;
+    color: var(--paper-45);
+    margin-bottom: 20px;
+  }
+
+  .oc-item a {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .oc-item p {
+    font-size: 12.5px;
+    color: var(--paper-55);
+  }
+
+  .oc-item:first-of-type p {
+    margin-bottom: 16px;
+  }
+
+  .side-bottom {
+    display: grid;
+    gap: 28px;
+    justify-items: start;
+  }
+
+  .lang-toggle {
+    display: flex;
+    gap: 2px;
+    border: 1px solid var(--paper-30);
+  }
+
+  .lang-toggle a {
+    font-size: 11.5px;
+    line-height: 1;
+    padding: 5px 10px;
+    white-space: nowrap;
+  }
+
+  .lang-toggle a[data-set-lang='en'] {
+    font-family: var(--font-latin);
+  }
+
+  .lang-toggle a[data-set-lang='ja'] {
+    font-family: var(--font-jp);
+  }
+
+  .lang-toggle a.active {
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  .address {
+    font-size: 12px;
+    line-height: 2;
+    color: var(--paper-50);
+    display: grid;
+  }
+
+  .address:lang(ja) {
+    line-height: 2.1;
+  }
+
+  @media (max-width: 900px) {
+    .overlay-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .index {
+      border-right: none;
+    }
+
+    .side {
+      border-top: var(--hairline-dark);
+    }
+
+    .row .label {
+      font-size: 26px;
+    }
+  }
+</style>

@@ -1,0 +1,154 @@
+---
+import chromeEn from '../data/copy/en/chrome.json';
+import chromeJa from '../data/copy/ja/chrome.json';
+import { site } from '../data/site';
+import { localePath } from '../lib/paths';
+
+interface Props {
+  locale: 'en' | 'ja';
+  slug: string;
+}
+
+const { locale, slug } = Astro.props;
+const f = { en: chromeEn, ja: chromeJa }[locale].footer;
+const pathFor = (l: string) => localePath(l, slug ? `/${slug}` : '');
+---
+
+<footer class="footer">
+  <div class="cols">
+    {
+      f.columns.map((col) => (
+        <div class="col">
+          <h2>{col.header}</h2>
+          <ul>
+            {col.links.map((link) => (
+              <li>
+                {link.external ? (
+                  <a href={link.href} target="_blank" rel="noopener">
+                    {link.label}
+                  </a>
+                ) : (
+                  <a href={localePath(locale, link.href)}>{link.label}</a>
+                )}
+              </li>
+            ))}
+            {col.securityItem && site.showSecurity && <li class="muted">{col.securityItem}</li>}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+  <div class="baseline">
+    <p>{f.baseline.copyright}</p>
+    <div class="baseline-right">
+      <a href={pathFor('en')} data-set-lang="en" class:list={[{ active: locale === 'en' }]}>
+        {f.baseline.langSwitch.en}
+      </a>
+      <a href={pathFor('ja')} data-set-lang="ja" class:list={[{ active: locale === 'ja' }]}>
+        {f.baseline.langSwitch.ja}
+      </a>
+      <a class="dead">{f.baseline.privacy}</a>
+      <a class="dead">{f.baseline.legal}</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--paper-footer);
+    color: var(--ink-62);
+  }
+
+  .cols {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    padding: 64px var(--side) 56px;
+    border-bottom: var(--hairline);
+  }
+
+  .col h2 {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: var(--label-ls);
+    text-transform: uppercase;
+    color: var(--ink-45);
+    margin-bottom: 18px;
+  }
+
+  .col ul {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    font-size: 13px;
+  }
+
+  .col a {
+    color: var(--ink-75);
+  }
+
+  .col a:hover {
+    color: var(--vermilion);
+  }
+
+  .col .muted {
+    color: var(--ink-40);
+  }
+
+  .baseline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    padding: 24px var(--side);
+    font-size: 12px;
+    color: var(--ink-50);
+  }
+
+  .baseline-right {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .baseline a {
+    color: var(--ink-50);
+  }
+
+  .baseline a:hover {
+    color: var(--vermilion);
+  }
+
+  .baseline a.active {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .baseline a.dead {
+    cursor: default;
+  }
+
+  .baseline a.dead:hover {
+    color: var(--ink-50);
+  }
+
+  @media (max-width: 900px) {
+    .cols {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 48px;
+    }
+
+    .baseline {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .cols {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,20 @@
+{
+  "masthead": {
+    "label": "SUCCESSION",
+    "h1": "A permanent home for the businesses that deserve to continue.",
+    "lede": "When an owner is ready to step back, we provide a permanent home: we keep the name, the people, and the relationships. We are operators, not a fund. There is no exit plan, because there is no exit."
+  },
+  "programs": {
+    "label": "ACTIVE\nPROGRAMS",
+    "japan": {
+      "name": "Japan",
+      "subtitle": "事業承継",
+      "description": "Our flagship program, based in Yokohama. For owners considering succession, their families, and their advisors.",
+      "path": "/succession/japan"
+    },
+    "further": {
+      "term": "Further markets",
+      "body": "The same model, market by market, in time. New Zealand — where the group began — has its own generation of retiring owners."
+    }
+  }
+}

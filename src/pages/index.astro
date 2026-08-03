@@ -1,0 +1,36 @@
+---
+// Locale negotiation: explicit choice (localStorage 'fh_lang') wins,
+// else browser language (ja* → /ja), else /en.
+import { localePath } from '../lib/paths';
+
+const enUrl = localePath('en');
+const jaUrl = localePath('ja');
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Finlayson Holdings</title>
+    <meta name="robots" content="noindex" />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="ja" href={jaUrl} />
+    <script is:inline define:vars={{ enUrl, jaUrl }}>
+      (function () {
+        var stored = null;
+        try {
+          stored = localStorage.getItem('fh_lang');
+        } catch (e) {}
+        var ja =
+          stored === 'ja' ||
+          (!stored && /^ja/i.test(navigator.language || ''));
+        location.replace(ja ? jaUrl : enUrl);
+      })();
+    </script>
+  </head>
+  <body>
+    <noscript>
+      <p><a href={enUrl}>English</a> · <a href={jaUrl}>日本語</a></p>
+    </noscript>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "masthead": {
+    "label": "CONTACT",
+    "h1": "Write to the group.",
+    "lede": "For succession, partnership, and group matters. We confirm receipt within three business days."
+  },
+  "note": {
+    "label": "A NOTE FIRST",
+    "before": "For client and project work, please contact the companies directly — ",
+    "mdmcLink": { "label": "MDMC ↗", "url": "https://mdmc.co" },
+    "between": " for brand and design, ",
+    "perpetuaLink": { "label": "Perpetua Software ↗", "url": "https://perpetua.studio" },
+    "after": " for engineering."
+  },
+  "form": {
+    "label": "INQUIRY",
+    "type": {
+      "label": "TYPE OF INQUIRY",
+      "options": [
+        "Succession",
+        "Capital & partnership",
+        "Media",
+        "Other"
+      ]
+    },
+    "name": { "label": "NAME", "placeholder": "Your name" },
+    "company": { "label": "COMPANY", "placeholder": "Company name" },
+    "email": { "label": "EMAIL", "placeholder": "name@company.com" },
+    "message": { "label": "MESSAGE", "placeholder": "How can we help?" },
+    "submit": "Send inquiry",
+    "privacyNote": null
+  },
+  "address": {
+    "heading": "Registered office",
+    "lines": [
+      "Finlayson Holdings Japan KK",
+      "KITANAKA BRICK & WHITE",
+      "Kitanakadori, Naka-ku, Yokohama",
+      "Kanagawa 231-0003, Japan"
+    ],
+    "attention": [
+      "Attention: Liam Finlayson,",
+      "Representative Director"
+    ]
+  }
+}

@@ -1,0 +1,349 @@
+---
+import Base from '../../layouts/Base.astro';
+import copyEn from '../../data/copy/en/home.json';
+import copyJa from '../../data/copy/ja/home.json';
+import { localePath } from '../../lib/paths';
+
+interface Props {
+  locale: 'en' | 'ja';
+}
+
+const { locale } = Astro.props;
+const t = { en: copyEn, ja: copyJa }[locale];
+const title = 'Finlayson Holdings';
+---
+
+<Base locale={locale} slug="" title={title} description={t.masthead.lede}>
+  <section class="masthead masthead--home">
+    <h1>{t.masthead.h1}</h1>
+    <div class="lede-row">
+      <p class="lede">{t.masthead.lede}</p>
+      <p class="meta">
+        {t.masthead.meta.map((line) => <span>{line}</span>)}
+      </p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band__rail"><span class="band__label">{t.operate.label}</span></div>
+    <div class="operate">
+      {
+        t.operate.companies.map((c) => (
+          <div class="operate__col">
+            <div class="name-row">
+              <h2>{c.name}</h2>
+              <span class="tag">{c.tag}</span>
+            </div>
+            <p class="desc">{c.description}</p>
+            <ul class="services">
+              {c.services.map((s) => (
+                <li>{s}</li>
+              ))}
+            </ul>
+            <a class="outbound" href={c.url} target="_blank" rel="noopener">
+              {c.linkText}
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="band band--warm">
+    <div class="band__rail"><span class="band__label">{t.believe.label}</span></div>
+    <div class="believe">
+      {
+        t.believe.items.map((item) => (
+          <div class="believe__col">
+            <div class="index">{item.index}</div>
+            <h2>{item.title}</h2>
+            <p>{item.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band__rail"><span class="band__label">{t.succession.label}</span></div>
+    <div class="succession">
+      <div class="succession__main">
+        <div class="accent-square"></div>
+        <h2>{t.succession.heading}</h2>
+        <p>{t.succession.body}</p>
+      </div>
+      <div class="succession__side">
+        <p class="note">{t.succession.note}</p>
+        <a class="btn-ink" href={localePath(locale, t.succession.cta.path)}>{t.succession.cta.label}</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .masthead--home {
+    padding: 130px var(--side) 110px;
+  }
+
+  .masthead--home:lang(ja) {
+    padding: 120px var(--side) 100px;
+  }
+
+  .masthead--home h1 {
+    font-size: 84px;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin: 0 0 42px;
+    max-width: 980px;
+  }
+
+  .masthead--home h1:lang(ja) {
+    font-size: 56px;
+    line-height: 1.42;
+    letter-spacing: 0.04em;
+    margin: 0 0 40px;
+  }
+
+  .lede-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .lede {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--ink-72);
+    max-width: 480px;
+  }
+
+  .lede:lang(ja) {
+    font-size: 15.5px;
+    line-height: 2;
+    max-width: 520px;
+  }
+
+  .meta {
+    font-size: 12.5px;
+    letter-spacing: 0.16em;
+    color: var(--ink-50);
+    text-align: right;
+    line-height: 2;
+    display: grid;
+  }
+
+  .meta:lang(ja) {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    line-height: 2.1;
+  }
+
+  /* What we operate */
+  .operate {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .operate__col {
+    border-left: var(--hairline);
+    padding: 64px 48px 72px;
+  }
+
+  .operate__col:last-child {
+    padding: 64px var(--side) 72px 48px;
+  }
+
+  .name-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 14px;
+  }
+
+  .name-row h2 {
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: -0.01em;
+    font-family: var(--font-latin);
+  }
+
+  .tag {
+    font-size: 12px;
+    color: var(--ink-45);
+    letter-spacing: 0.1em;
+  }
+
+  .tag:lang(ja) {
+    letter-spacing: 0;
+  }
+
+  .desc {
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--ink-66);
+    max-width: 380px;
+    margin: 0 0 26px;
+  }
+
+  .desc:lang(ja) {
+    font-size: 14px;
+    line-height: 1.9;
+  }
+
+  .services {
+    font-size: 13.5px;
+    color: var(--ink-72);
+    margin-bottom: 30px;
+    border-top: var(--hairline-inner);
+  }
+
+  .services li {
+    padding: 9px 0;
+    border-bottom: var(--hairline-inner);
+  }
+
+  .outbound {
+    font-size: 13px;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 2px;
+  }
+
+  .outbound:hover {
+    border-color: var(--vermilion);
+  }
+
+  /* What we believe */
+  .believe {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .believe__col {
+    border-left: var(--hairline);
+    padding: 64px 40px 72px;
+  }
+
+  .believe__col .index {
+    font-size: 12px;
+    color: var(--vermilion);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    margin-bottom: 20px;
+  }
+
+  .believe__col h2 {
+    font-weight: 600;
+    font-size: 19px;
+    margin-bottom: 10px;
+  }
+
+  .believe__col p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--ink-66);
+    max-width: 260px;
+  }
+
+  .believe__col p:lang(ja) {
+    font-size: 13.5px;
+    line-height: 2;
+  }
+
+  /* Succession */
+  .succession {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+  }
+
+  .succession__main {
+    border-left: var(--hairline);
+    padding: 64px 48px 72px;
+  }
+
+  .succession__main .accent-square {
+    margin-bottom: 26px;
+  }
+
+  .succession__main h2 {
+    font-family: var(--font-editorial);
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 1.3;
+    margin-bottom: 18px;
+    max-width: 520px;
+  }
+
+  .succession__main h2:lang(ja) {
+    font-size: 30px;
+    line-height: 1.6;
+    max-width: 560px;
+  }
+
+  .succession__main p {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: var(--ink-66);
+    max-width: 460px;
+  }
+
+  .succession__main p:lang(ja) {
+    font-size: 14px;
+    line-height: 2;
+    max-width: 480px;
+  }
+
+  .succession__side {
+    border-left: var(--hairline);
+    padding: 64px var(--side) 72px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 32px;
+  }
+
+  .succession__side .note {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: var(--ink-66);
+  }
+
+  .succession__side .note:lang(ja) {
+    font-size: 13px;
+    line-height: 2;
+  }
+
+  @media (max-width: 900px) {
+    .masthead--home,
+    .masthead--home:lang(ja) {
+      padding: 80px var(--side) 64px;
+    }
+
+    .masthead--home h1 {
+      font-size: 44px;
+    }
+
+    .masthead--home h1:lang(ja) {
+      font-size: 34px;
+    }
+
+    .operate,
+    .believe,
+    .succession {
+      grid-template-columns: 1fr;
+    }
+
+    .operate__col,
+    .operate__col:last-child,
+    .believe__col,
+    .succession__main,
+    .succession__side {
+      border-left: none;
+      border-top: var(--hairline);
+      padding: 40px var(--side) 48px;
+    }
+  }
+</style>

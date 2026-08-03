@@ -1,0 +1,132 @@
+---
+import chromeEn from '../data/copy/en/chrome.json';
+import chromeJa from '../data/copy/ja/chrome.json';
+import { localePath, withBase } from '../lib/paths';
+
+interface Props {
+  locale: 'en' | 'ja';
+  slug: string;
+}
+
+const { locale, slug } = Astro.props;
+const t = { en: chromeEn, ja: chromeJa }[locale].header;
+const pathFor = (l: string) => localePath(l, slug ? `/${slug}` : '');
+---
+
+<header class="site-header">
+  <a class="wordmark" href={localePath(locale)}>
+    <img src={withBase('/assets/fh-logo-black.svg')} alt={t.logoAlt} />
+  </a>
+  <div class="right">
+    <nav class="nav">
+      {t.nav.map((item) => <a href={localePath(locale, item.path)}>{item.label}</a>)}
+    </nav>
+    <div class="lang-toggle">
+      <a href={pathFor('en')} data-set-lang="en" class:list={[{ active: locale === 'en' }]}>
+        {t.langToggle.en}
+      </a>
+      <a href={pathFor('ja')} data-set-lang="ja" class:list={[{ active: locale === 'ja' }]}>
+        {t.langToggle.ja}
+      </a>
+    </div>
+    <button
+      id="menu-open"
+      class="burger"
+      aria-label={t.menuButtonAriaLabel}
+      aria-expanded="false"
+      aria-controls="menu-overlay"
+    >
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px 24px;
+    padding: 26px 32px 26px var(--side);
+    border-bottom: var(--hairline);
+    background: var(--paper);
+  }
+
+  .wordmark img {
+    height: 15px;
+    width: auto;
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    justify-content: flex-end;
+    column-gap: 24px;
+  }
+
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    column-gap: 24px;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .nav:lang(ja) {
+    column-gap: 20px;
+  }
+
+  .nav a {
+    font-size: 13.5px;
+    white-space: nowrap;
+  }
+
+  .lang-toggle {
+    display: flex;
+    gap: 2px;
+    border: 1px solid var(--ink-25);
+  }
+
+  .lang-toggle a {
+    font-size: 11.5px;
+    line-height: 1;
+    padding: 5px 10px;
+    white-space: nowrap;
+  }
+
+  /* Each segment renders in its own language's stack */
+  .lang-toggle a[data-set-lang='en'] {
+    font-family: var(--font-latin);
+  }
+
+  .lang-toggle a[data-set-lang='ja'] {
+    font-family: var(--font-jp);
+  }
+
+  .lang-toggle a.active {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .lang-toggle a:not(.active):hover {
+    color: var(--vermilion);
+  }
+
+  .burger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 8px 0 8px 6px;
+  }
+
+  .burger span {
+    width: 22px;
+    height: 1.5px;
+    background: var(--ink);
+  }
+</style>

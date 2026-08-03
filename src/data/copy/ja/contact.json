@@ -1,0 +1,46 @@
+{
+  "masthead": {
+    "label": "お問い合わせ",
+    "h1": "グループへのご連絡。",
+    "lede": "事業承継、資本・提携、その他グループに関するお問い合わせを承ります。内容を確認のうえ、3営業日以内にご返信いたします。"
+  },
+  "note": {
+    "label": "はじめに",
+    "before": "制作・開発のご依頼は、各事業会社へ直接お問い合わせください — ブランド・デザインは ",
+    "mdmcLink": { "label": "MDMC ↗", "url": "https://mdmc.co" },
+    "between": "、エンジニアリングは ",
+    "perpetuaLink": { "label": "Perpetua Software ↗", "url": "https://perpetua.studio" },
+    "after": " へ。"
+  },
+  "form": {
+    "label": "フォーム",
+    "type": {
+      "label": "お問い合わせ種別",
+      "options": [
+        "事業承継のご相談",
+        "資本・提携について",
+        "取材のお申し込み",
+        "その他"
+      ]
+    },
+    "name": { "label": "お名前", "placeholder": "山田 太郎" },
+    "company": { "label": "会社名", "placeholder": "株式会社〇〇" },
+    "email": { "label": "メールアドレス", "placeholder": "name@company.co.jp" },
+    "message": { "label": "お問い合わせ内容", "placeholder": "ご相談の内容をご記入ください" },
+    "submit": "送信する",
+    "privacyNote": "ご入力いただいた内容は、お問い合わせへの対応のみに使用いたします。"
+  },
+  "address": {
+    "heading": "登記上の所在地",
+    "lines": [
+      "Finlayson Holdings Japan 株式会社",
+      "〒231-0003",
+      "神奈川県横浜市中区北仲通",
+      "KITANAKA BRICK & WHITE"
+    ],
+    "attention": [
+      "担当：代表取締役",
+      "リアム・フィンレイソン"
+    ]
+  }
+}

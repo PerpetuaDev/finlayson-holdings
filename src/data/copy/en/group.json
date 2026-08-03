@@ -1,0 +1,60 @@
+{
+  "masthead": {
+    "label": "THE GROUP",
+    "h1": "A permanent holding company.",
+    "lede": "Finlayson Holdings builds and buys businesses in design, software, and adjacent services. We do not flip them. We operate where we own."
+  },
+  "model": {
+    "label": "THE MODEL",
+    "rows": [
+      {
+        "term": "Build and buy",
+        "body": "We grow the businesses we started, and provide a home for good ones we didn't."
+      },
+      {
+        "term": "Never flip",
+        "body": "There is no exit plan. A company that joins the group stays in the group."
+      },
+      {
+        "term": "Operate where we own",
+        "body": "Group leadership works inside the operating companies, not above them."
+      }
+    ]
+  },
+  "history": {
+    "label": "HISTORY",
+    "rows": [
+      {
+        "term": "2016",
+        "tone": "default",
+        "body": "MDMC founded. Finlayson Holdings established in Auckland, New Zealand — August 2016."
+      },
+      {
+        "term": "2016 – 2026",
+        "tone": "default",
+        "body": "Perpetua Software established as the group's engineering arm. A decade of continuous operation; our anchor client relationship passes ten years."
+      },
+      {
+        "term": "2026",
+        "tone": "accent",
+        "body": "Finlayson Holdings Japan KK incorporated in Yokohama — July 2026. The group's second market."
+      },
+      {
+        "term": "Ahead",
+        "tone": "muted",
+        "body": "Security services. Succession acquisitions. Further markets, in time."
+      }
+    ]
+  },
+  "structure": {
+    "label": "STRUCTURE",
+    "parent": { "name": "Finlayson Holdings Ltd", "sub": "NEW ZEALAND — EST. 2016" },
+    "japanEntity": { "name": "Finlayson Holdings Japan KK", "sub": "JAPAN — 2026" },
+    "children": [
+      { "name": "MDMC", "sub": "BRAND & DESIGN", "style": "solid", "gatedBySecurityFlag": false },
+      { "name": "Perpetua Software", "sub": "ENGINEERING", "style": "solid", "gatedBySecurityFlag": false },
+      { "name": "Security", "sub": "LAUNCHING", "style": "dashed", "gatedBySecurityFlag": true },
+      { "name": "Acquired companies", "sub": "THROUGH SUCCESSION", "style": "dashed", "gatedBySecurityFlag": false }
+    ]
+  }
+}

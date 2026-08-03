@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.astro/
+.env
+.DS_Store
+
+# Internal design handoff — local reference only, not for the public repo
+design_handoff_finlayson_holdings_site/

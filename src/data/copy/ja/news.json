@@ -1,0 +1,13 @@
+{
+  "masthead": {
+    "label": "お知らせ",
+    "h1": "お知らせ一覧。"
+  },
+  "titlesAreDraft": true,
+  "yearRail": "2026",
+  "entries": [
+    { "date": "2026.08", "category": "お知らせ", "title": "グループサイトを公開しました" },
+    { "date": "2026.08", "category": "お知らせ", "title": "MDMC・Perpetua Softwareのブランドページを公開しました" },
+    { "date": "2026.07", "category": "お知らせ", "title": "会社設立のお知らせ — Finlayson Holdings Japan株式会社（横浜）" }
+  ]
+}

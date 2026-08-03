@@ -1,0 +1,60 @@
+{
+  "masthead": {
+    "label": "グループについて",
+    "h1": "永続保有型の持株会社。",
+    "lede": "フィンレイソン・ホールディングスは、デザイン、ソフトウェア、その周辺領域の会社をつくり、また受け継ぎ、永く保有します。売却はしません。保有する事業は、自ら運営します。"
+  },
+  "model": {
+    "label": "モデル",
+    "rows": [
+      {
+        "term": "つくり、受け継ぐ",
+        "body": "自ら立ち上げた事業を育てるとともに、良い事業の受け皿となります。"
+      },
+      {
+        "term": "売却しない",
+        "body": "出口戦略はありません。グループに加わった会社は、永続的にグループの一員です。"
+      },
+      {
+        "term": "現場で経営する",
+        "body": "グループの経営陣は、事業会社の外からではなく、現場に立って経営します。"
+      }
+    ]
+  },
+  "history": {
+    "label": "沿革",
+    "rows": [
+      {
+        "term": "2016",
+        "tone": "default",
+        "body": "MDMC創業。ニュージーランド・オークランドにてFinlayson Holdings設立（8月）。"
+      },
+      {
+        "term": "2016 – 2026",
+        "tone": "default",
+        "body": "エンジニアリング部門としてPerpetua Softwareを設立。10年にわたる継続的な事業運営。主要クライアントとのお取引は10年を超えました。"
+      },
+      {
+        "term": "2026",
+        "tone": "accent",
+        "body": "Finlayson Holdings Japan株式会社を横浜に設立（7月）。グループ第二の拠点。"
+      },
+      {
+        "term": "これから",
+        "tone": "muted",
+        "body": "セキュリティ事業。事業承継による仲間入り。そして、さらなる市場へ。"
+      }
+    ]
+  },
+  "structure": {
+    "label": "体制",
+    "parent": { "name": "Finlayson Holdings Ltd", "sub": "ニュージーランド — 2016年設立" },
+    "japanEntity": { "name": "Finlayson Holdings Japan 株式会社", "sub": "日本 — 2026年設立" },
+    "children": [
+      { "name": "MDMC", "sub": "ブランド・デザイン", "style": "solid", "gatedBySecurityFlag": false },
+      { "name": "Perpetua Software", "sub": "エンジニアリング", "style": "solid", "gatedBySecurityFlag": false },
+      { "name": "セキュリティ", "sub": "準備中", "style": "dashed", "gatedBySecurityFlag": true },
+      { "name": "承継会社", "sub": "事業承継により", "style": "dashed", "gatedBySecurityFlag": false }
+    ]
+  }
+}

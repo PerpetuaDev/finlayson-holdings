@@ -1,0 +1,21 @@
+---
+// Label-rail band — the site's core section pattern (README: Layout System).
+interface Props {
+  label: string;
+  warm?: boolean; // #F7F5F0 alternate ground
+  numericLabel?: boolean; // numeric rails keep .18em letter-spacing in JA
+  id?: string;
+  padded?: boolean; // false when rows inside carry their own side padding
+}
+
+const { label, warm = false, numericLabel = false, id, padded = true } = Astro.props;
+---
+
+<section class="band" class:list={[{ 'band--warm': warm }]} id={id}>
+  <div class="band__rail">
+    <span class="band__label" class:list={[{ 'band__label--num': numericLabel }]}>{label}</span>
+  </div>
+  <div class="band__content" class:list={[{ 'band__content--flush': !padded }]}>
+    <slot />
+  </div>
+</section>

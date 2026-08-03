@@ -1,0 +1,29 @@
+{
+  "masthead": {
+    "label": "CAPITAL & PARTNERS",
+    "h1": "A disciplined, long-term structure.",
+    "lede": "For financial institutions and long-term partners who want to understand how the group is built and run."
+  },
+  "brief": {
+    "label": "IN BRIEF",
+    "rows": [
+      {
+        "term": "The model",
+        "body": "Permanent ownership. A recurring-revenue orientation across design, software, and services. Operating discipline over financial engineering."
+      },
+      {
+        "term": "The structure",
+        "body": "A New Zealand parent established in 2016; a Japanese subsidiary incorporated in Yokohama in 2026. Two clear jurisdictions, clean consolidation, operating brands beneath."
+      },
+      {
+        "term": "The history",
+        "body": "A decade of continuous operation, including an anchor enterprise relationship of more than ten years."
+      }
+    ]
+  },
+  "note": {
+    "label": "A NOTE",
+    "body": "We are not raising capital. We welcome conversations with financial institutions and aligned long-term partners — as introductions, not as pitches.",
+    "cta": { "label": "Introduce yourself →", "path": "/contact" }
+  }
+}

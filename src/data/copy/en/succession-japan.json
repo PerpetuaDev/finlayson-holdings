@@ -1,0 +1,54 @@
+{
+  "masthead": {
+    "label": "SUCCESSION — JAPAN",
+    "h1": "Continuing what you built.",
+    "lede": "A business built over decades carries weight — in its name, its people, its relationships. Our work is to receive it, and to continue it.",
+    "readInJapanese": {
+      "prefix": "このページは日本語でもご覧いただけます — ",
+      "linkText": "日本語で読む"
+    }
+  },
+  "sections": {
+    "commonality": {
+      "number": "01",
+      "h2": "Having no successor is common — and it is not a failure.",
+      "body": "A large share of small companies in Japan face the same question. It is a structural fact of this era, not a judgment on the business. The question is simply how good work continues — and we offer one answer."
+    },
+    "offer": {
+      "number": "02",
+      "h2": "What we offer: permanent ownership.",
+      "body": "We are operators, not a fund. We do not buy to sell.",
+      "list": [
+        "The company name stays.",
+        "The people stay.",
+        "The client relationships stay."
+      ]
+    },
+    "fit": {
+      "number": "03",
+      "h2": "The businesses that fit.",
+      "criteria": [
+        { "term": "Scale", "body": "Small and steadily profitable." },
+        { "term": "Fields", "body": "Design, print, web production, IT services, hosting and maintenance — work adjacent to what the group already does." },
+        { "term": "Region", "body": "Kanagawa and the Kanto region preferred; elsewhere in Japan welcome to inquire." }
+      ]
+    },
+    "process": {
+      "number": "04",
+      "h2": "How a conversation works.",
+      "steps": [
+        { "marker": "1", "text": "A confidential first meeting — no obligation, no documents required." },
+        { "marker": "2", "text": "Understanding the business, at your pace — weeks or months, as it takes." },
+        { "marker": "3", "text": "Terms discussed together with your existing advisors — we work alongside them, never around them." },
+        { "marker": "4", "text": "Succession — and after it, the name, the people, and the work continue." }
+      ],
+      "closing": "We will never hurry you. There is no timetable but yours."
+    },
+    "advisors": {
+      "number": "05",
+      "h2": "For owners, families — and advisors.",
+      "body": "We equally welcome contact from tax advisors, financial institutions, and succession-support organisations on behalf of owners.",
+      "cta": { "label": "Start a confidential conversation →", "path": "/contact" }
+    }
+  }
+}

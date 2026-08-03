@@ -1,0 +1,13 @@
+{
+  "masthead": {
+    "label": "NEWS",
+    "h1": "Announcements."
+  },
+  "titlesAreDraft": true,
+  "yearRail": "2026",
+  "entries": [
+    { "date": "2026.08", "category": "ANNOUNCEMENT", "title": "Group site launched" },
+    { "date": "2026.08", "category": "ANNOUNCEMENT", "title": "MDMC and Perpetua Software brand pages live" },
+    { "date": "2026.07", "category": "ANNOUNCEMENT", "title": "Notice of incorporation — Finlayson Holdings Japan KK, Yokohama" }
+  ]
+}

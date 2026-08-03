@@ -1,0 +1,212 @@
+---
+import Base from '../../layouts/Base.astro';
+import Band from '../Band.astro';
+import copyEn from '../../data/copy/en/group.json';
+import copyJa from '../../data/copy/ja/group.json';
+import { site } from '../../data/site';
+
+interface Props {
+  locale: 'en' | 'ja';
+}
+
+const { locale } = Astro.props;
+const t = { en: copyEn, ja: copyJa }[locale];
+const title =
+  locale === 'ja' ? 'グループについて — Finlayson Holdings' : 'The Group — Finlayson Holdings';
+const children = t.structure.children.filter((c) => !c.gatedBySecurityFlag || site.showSecurity);
+---
+
+<Base locale={locale} slug="group" title={title} description={t.masthead.lede}>
+  <section class="masthead">
+    <p class="masthead__label">{t.masthead.label}</p>
+    <h1>{t.masthead.h1}</h1>
+    <p class="masthead__lede">{t.masthead.lede}</p>
+  </section>
+
+  <Band label={t.model.label} padded={false}>
+    {
+      t.model.rows.map((row) => (
+        <div class="def-row">
+          <div class="def-row__term">{row.term}</div>
+          <p class="def-row__body">{row.body}</p>
+        </div>
+      ))
+    }
+  </Band>
+
+  <Band label={t.history.label} warm padded={false}>
+    {
+      t.history.rows.map((row) => (
+        <div class="def-row">
+          <div class="year" class:list={[`year--${row.tone}`]}>
+            {row.term}
+          </div>
+          <p class="def-row__body">{row.body}</p>
+        </div>
+      ))
+    }
+  </Band>
+
+  <Band label={t.structure.label} padded={false}>
+    <div class="structure">
+      <div class="diagram">
+        <div class="entity">
+          <div class="entity__name">{t.structure.parent.name}</div>
+          <div class="entity__sub">{t.structure.parent.sub}</div>
+        </div>
+        <div class="connector"></div>
+        <div class="entity">
+          <div class="entity__name">{t.structure.japanEntity.name}</div>
+          <div class="entity__sub">{t.structure.japanEntity.sub}</div>
+        </div>
+        <div class="connector"></div>
+        <div class="hrule"></div>
+        <div class="children">
+          {
+            children.map((c) => (
+              <div class="child">
+                <div class="tick"></div>
+                <div class="child__box" class:list={[`child__box--${c.style}`]}>
+                  <div class="child__name">{c.name}</div>
+                  <div class="child__sub">{c.sub}</div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </Band>
+</Base>
+
+<style>
+  .year {
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: -0.01em;
+    font-family: var(--font-latin);
+  }
+
+  .year--accent {
+    color: var(--vermilion);
+  }
+
+  .year--muted {
+    color: var(--ink-40);
+  }
+
+  .structure {
+    padding: 72px var(--side) 80px;
+  }
+
+  .diagram {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 860px;
+  }
+
+  .entity {
+    border: 1px solid var(--ink);
+    padding: 20px 40px;
+    text-align: center;
+    background: var(--paper);
+  }
+
+  .entity__name {
+    font-weight: 600;
+    font-size: 15.5px;
+  }
+
+  .entity__sub {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    color: var(--ink-50);
+    margin-top: 7px;
+  }
+
+  .entity__sub:lang(ja) {
+    letter-spacing: 0.14em;
+  }
+
+  .connector {
+    width: 1px;
+    height: 36px;
+    background: var(--ink-35);
+  }
+
+  .hrule {
+    width: 72%;
+    height: 1px;
+    background: var(--ink-35);
+  }
+
+  .children {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    width: 100%;
+  }
+
+  .child {
+    flex: 1;
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tick {
+    width: 1px;
+    height: 24px;
+    background: var(--ink-35);
+  }
+
+  .child__box {
+    width: 100%;
+    padding: 15px 12px;
+    text-align: center;
+  }
+
+  .child__box--solid {
+    border: 1px solid var(--ink-55);
+  }
+
+  .child__box--dashed {
+    border: 1px dashed var(--ink-40);
+    color: var(--ink-55);
+  }
+
+  .child__name {
+    font-weight: 600;
+    font-size: 13.5px;
+  }
+
+  .child__sub {
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    color: var(--ink-50);
+    margin-top: 5px;
+  }
+
+  .child__sub:lang(ja) {
+    letter-spacing: 0.1em;
+  }
+
+  @media (max-width: 900px) {
+    .structure {
+      padding: 48px var(--side) 56px;
+    }
+
+    .children {
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    .child {
+      max-width: 240px;
+      width: 100%;
+    }
+  }
+</style>
