@@ -3,7 +3,8 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import MenuOverlay from '../components/MenuOverlay.astro';
 import Footer from '../components/Footer.astro';
-import { localePath } from '../lib/paths';
+import { localePath, withBase } from '../lib/paths';
+import { site } from '../data/site';
 
 interface Props {
   locale: 'en' | 'ja';
@@ -15,6 +16,11 @@ interface Props {
 const { locale, slug, title, description } = Astro.props;
 const otherLocale = locale === 'en' ? 'ja' : 'en';
 const pathFor = (l: string) => localePath(l, slug ? `/${slug}` : '');
+const absolute = (path: string) => (Astro.site ? new URL(path, Astro.site).href : path);
+const canonical = absolute(pathFor(locale));
+const ogImage = absolute(withBase('/assets/og-square.jpg'));
+const ogLocale = locale === 'ja' ? 'ja_JP' : 'en_NZ';
+const ogLocaleAlt = locale === 'ja' ? 'en_NZ' : 'ja_JP';
 ---
 
 <html lang={locale}>
@@ -23,8 +29,24 @@ const pathFor = (l: string) => localePath(l, slug ? `/${slug}` : '');
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
+    {!site.indexable && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang={otherLocale} href={pathFor(otherLocale)} />
     <link rel="alternate" hreflang={locale} href={pathFor(locale)} />
+    <link rel="icon" type="image/svg+xml" href={withBase('/assets/favicon.svg')} />
+    <link rel="icon" type="image/png" sizes="32x32" href={withBase('/assets/favicon-32.png')} />
+    <link rel="apple-touch-icon" href={withBase('/assets/apple-touch-icon.png')} />
+    <meta property="og:site_name" content="Finlayson Holdings" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="982" />
+    <meta property="og:image:height" content="982" />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale:alternate" content={ogLocaleAlt} />
+    <meta name="twitter:card" content="summary" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

@@ -1,0 +1,39 @@
+{
+  "masthead": {
+    "label": "PRIVACY",
+    "h1": "How we handle personal information.",
+    "lede": "This policy covers this website and inquiries sent to the group."
+  },
+  "effective": "Effective August 2026",
+  "policyLabel": "POLICY",
+  "sections": [
+    {
+      "term": "Who we are",
+      "body": "This website is operated by Finlayson Holdings Ltd (Auckland, New Zealand) and Finlayson Holdings Japan KK (Yokohama, Japan) — together, the group."
+    },
+    {
+      "term": "What we collect",
+      "body": "What you choose to send through the contact form: the type of inquiry, your name, company, email address, and message. The site sets no cookies and uses no analytics or advertising trackers; your language preference is stored only in your browser and never leaves your device. Our hosting provider keeps standard access logs."
+    },
+    {
+      "term": "How we use it",
+      "body": "To read and respond to your inquiry, and for no other purpose. Succession inquiries are handled in strict confidence. We do not sell personal information, and we do not add you to marketing lists."
+    },
+    {
+      "term": "Sharing",
+      "body": "Within the group's companies where needed to respond, and with the service providers that run our hosting and email delivery, to the extent required. Beyond that, only where the law requires it."
+    },
+    {
+      "term": "Retention",
+      "body": "We keep correspondence for as long as the matter it concerns remains open, and as long as the law requires; after that, it is deleted."
+    },
+    {
+      "term": "Your rights",
+      "body": "You may ask us to access, correct, or delete personal information we hold about you at any time. Write to us via the contact page."
+    },
+    {
+      "term": "Changes",
+      "body": "If this policy changes, the revised version will be posted here with a new effective date."
+    }
+  ]
+}

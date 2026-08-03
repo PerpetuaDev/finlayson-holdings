@@ -4,6 +4,9 @@
 // companies band 03, the group structure diagram box, and both footers.
 export const site = {
   showSecurity: true,
+  // Keep false while the site lives on the github.io URL; flip to true at
+  // custom-domain launch so the temporary URL never gets indexed first.
+  indexable: false,
   urls: {
     mdmc: 'https://mdmc.co',
     perpetua: 'https://perpetua.studio',

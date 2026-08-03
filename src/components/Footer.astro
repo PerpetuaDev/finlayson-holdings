@@ -47,7 +47,7 @@ const pathFor = (l: string) => localePath(l, slug ? `/${slug}` : '');
       <a href={pathFor('ja')} data-set-lang="ja" class:list={[{ active: locale === 'ja' }]}>
         {f.baseline.langSwitch.ja}
       </a>
-      <a class="dead">{f.baseline.privacy}</a>
+      <a href={localePath(locale, '/privacy')}>{f.baseline.privacy}</a>
       <a class="dead">{f.baseline.legal}</a>
     </div>
   </div>
