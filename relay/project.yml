@@ -10,3 +10,4 @@ packages:
           MAILGUN_REGION: ${MAILGUN_REGION}
           NOTIFY_TO: ${NOTIFY_TO}
           REPLY_TO: ${REPLY_TO}
+          TURNSTILE_SECRET: ${TURNSTILE_SECRET}

@@ -13,6 +13,7 @@
  *   MAILGUN_REGION   "us"
  *   NOTIFY_TO        where inquiry notifications go
  *   REPLY_TO         Reply-To on the inquirer confirmation
+ *   TURNSTILE_SECRET Cloudflare Turnstile secret; empty = verification skipped
  *
  * NOTE: no CORS headers here — the DO Functions gateway injects its own on
  * every web function response; adding ours would duplicate them and browsers
@@ -88,6 +89,23 @@ async function mailgunSend(env, msg) {
   return res.json();
 }
 
+async function turnstileOk(env, token) {
+  if (!env.TURNSTILE_SECRET) return true; // not configured yet
+  if (!token) return false;
+  try {
+    const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({ secret: env.TURNSTILE_SECRET, response: String(token) }).toString(),
+    });
+    const out = await res.json();
+    return !!out.success;
+  } catch (e) {
+    console.error('turnstile verify error: ' + e.message);
+    return false;
+  }
+}
+
 exports.main = async function (args) {
   const env = process.env;
   const b = args; // web functions merge the JSON body into args
@@ -97,6 +115,10 @@ exports.main = async function (args) {
 
   if (!b.name || !b.message || !b.email || !/.+@.+/.test(String(b.email))) {
     return { statusCode: 400, body: { ok: false, error: 'missing fields' } };
+  }
+
+  if (!(await turnstileOk(env, b.turnstile))) {
+    return { statusCode: 403, body: { ok: false, error: 'verification failed' } };
   }
 
   const from = 'Finlayson Holdings <contact@' + env.MAILGUN_DOMAIN + '>';

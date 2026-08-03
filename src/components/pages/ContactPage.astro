@@ -87,6 +87,18 @@ const title =
           <label for="inquiry-website">Website</label>
           <input id="inquiry-website" name="website" type="text" tabindex="-1" autocomplete="off" />
         </div>
+        {
+          site.turnstileSiteKey && (
+            <div
+              class="cf-turnstile"
+              data-sitekey={site.turnstileSiteKey}
+              data-theme="light"
+              data-language={locale}
+              data-appearance="interaction-only"
+              data-action="turnstile-spin-v2"
+            />
+          )
+        }
         <div>
           <button class="btn-ink btn-ink--submit" type="submit">{t.form.submit}</button>
           {t.form.privacyNote && <p class="privacy">{t.form.privacyNote}</p>}
@@ -104,6 +116,12 @@ const title =
     </div>
   </section>
 </Base>
+
+{
+  site.turnstileSiteKey && (
+    <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer />
+  )
+}
 
 <script
   is:inline
@@ -134,6 +152,7 @@ const title =
             email: data.get('email'),
             message: data.get('message'),
             website: data.get('website'),
+            turnstile: data.get('cf-turnstile-response'),
             lang: locale,
           }),
         });
@@ -145,6 +164,8 @@ const title =
         errorEl.hidden = false;
         button.disabled = false;
         button.textContent = idleLabel;
+        // Turnstile tokens are single-use — issue a fresh one for the retry
+        if (window.turnstile) window.turnstile.reset();
       }
     });
   })();
