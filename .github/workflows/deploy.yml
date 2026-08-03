@@ -18,10 +18,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      # Project-pages subpath; drop BASE_PATH (and update SITE) when a custom
-      # domain is attached.
-      SITE: https://perpetuadev.github.io
-      BASE_PATH: /finlayson-holdings
+      SITE: https://finlaysonholdings.com
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
